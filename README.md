@@ -51,7 +51,7 @@
 
 ### 包划分
 包下可以放子应用，也可以放需要打包的组件库代码等...
-- [@vis/dashboard](/components/dashboard) 子应用, 已在流程中忽略，不走打包发布
+- [@vis/dashboard](/components/dashboard) 独立的子应用, 已在流程中忽略，不走打包发布
 - [@vis/utils](/components/utils) 工具库，常用的工具函数或者 hooks 等，如 transformData,uuid,timeFormat....
 - [@vis/test](/components/test) 这里你可以做任意操作，如测试 CI 自动化脚本，功能相关的东西，总之就是随便玩
 - [@vis/charts](/components/charts) 基于[antv](https://antv.vision/zh)下大屏画布或者仪表板图表库二次封装后的组件，如：条形进度图，词云图，饼图等...
@@ -67,7 +67,7 @@
 - `pnpm i` 安装
 - `npm run start` # 运行主项目
 - `npm run build` # 打包主项目
-- `npm run dash` # 运行仪表板子应用
+- `npm run dash` # 运行你的子应用
 - `npm run dev-lib` # 本地调试vis库
 - `npm run build-lib` # 懒加载打包(esm, cjs格式)package下所有库(保留文件的引用关系,可以查看对应包下面的lib和es文件夹)，能解耦主应用代码，避免重复打包
 - `npm run build-dist` # 打包生产环境下package下所有库(压缩，生成单文件)

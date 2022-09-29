@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Layouts() {
+function Layouts({ children }) {
   return (
-    <div>
-      Layouts
+    <div style={{ border: 'solid 1px red' }}>
+      {children}
     </div>
   );
 }

@@ -96,6 +96,7 @@ index.module.scss.d.ts
 # production
 build/
 dist/
+build-docs/
 tmp/
 /packages/*/lib/
 .happypack
