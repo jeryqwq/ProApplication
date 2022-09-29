@@ -65,9 +65,9 @@
 ### 运行
 我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在monorepo架构之上，pnpm能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比yarn和npm，pnpm能节约磁盘空间并提升安装速度，切避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和大部分主流开源项目抛弃npm,yarn，开始接入pnpm。
 - `pnpm i` 安装
-- `npm run vis` # 运行主项目
-- `npm run visual` # 运行画布
-- `npm run dash` # 运行仪表板
+- `npm run start` # 运行主项目
+- `npm run build` # 打包主项目
+- `npm run dash` # 运行仪表板子应用
 - `npm run dev-lib` # 本地调试vis库
 - `npm run build-lib` # 懒加载打包(esm, cjs格式)package下所有库(保留文件的引用关系,可以查看对应包下面的lib和es文件夹)，能解耦主应用代码，避免重复打包
 - `npm run build-dist` # 打包生产环境下package下所有库(压缩，生成单文件)
