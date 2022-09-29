@@ -1,0 +1,48 @@
+{
+  "name": "@vis/test",
+  "version": "0.0.0",
+  "description": "@vis/test",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://10.28.184.132/ssa-vis/vis-components/Index/"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "dist",
+    "es"
+  ],
+  "scripts": {
+    "build": "cross-env BUILD_TYPE=es father-build"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.16.3",
+    "@vis/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "antd": ">=4.20.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://10.28.184.132:4837/"
+  },
+  "authors": []
+}

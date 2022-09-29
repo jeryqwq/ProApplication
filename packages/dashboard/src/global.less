@@ -1,0 +1,44 @@
+@import 'antd/lib/style/themes/default.less';
+@import 'antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
+
+#ice-container, .icestark-child-app{
+  height: 100%;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+// json edit theme  ----start
+div.jsoneditor{
+  border: thin solid var(--ant-primary-color)
+}
+div.jsoneditor-menu{
+  background-color:var(--ant-primary-color);
+  border-bottom: 1px solid var(--ant-primary-color)
+}
+// json edit theme  ----end
+
+
+ //  grid-layout -----start
+.react-resizable{
+  overflow: hidden;
+  border: solid 1px var(--ant-primary-color);
+}
+.LazyLoad{
+  overflow: auto;
+  height: 100%;
+}
+ //  grid-layout -----end 
+
+.common-table-setting-wrap .ant-form-inline .ant-form-item {
+  margin-right: 6px;
+}
+.common-table-setting-wrap  .ant-row{
+  width: 100%;
+}
+main.ant-pro-basicLayout-content{
+  margin: 14px 0 0 0;
+}
+.ant-progress-show-info div.ant-progress-outer{
+  padding-right: 0;
+}

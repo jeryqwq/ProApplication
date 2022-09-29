@@ -1,0 +1,51 @@
+{
+  "name": "@vis/decorator",
+  "version": "1.0.0",
+  "description": "@vis/decorator",
+  "files": [
+    "lib",
+    "src",
+    "dist",
+    "es"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://10.28.184.132/ssa-vis/vis-components/Index/"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.3",
+    "lodash": "^4.17.21",
+    "@vis/utils": "workspace:^*",
+    "react-particles-js": "2.4.2",
+    "pathseg": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182"
+  },
+  "scripts": {
+    "build": "cross-env BUILD_TYPE=es father-build"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "authors": [
+    "chenjie <chen.jie3@asiainfo-sec.com> "
+  ],
+  "license": "MIT",
+  "homepage": "https://10.28.184.132:4837/-/web/detail/@vis/components",
+  "peerDependencies": {
+    "antd": ">=4.20.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://10.28.184.132:4837/"
+  }
+}

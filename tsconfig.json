@@ -1,0 +1,67 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build",
+    "module": "esnext",
+    "target": "es6",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "rootDir": "./",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@vis/test": ["./packages/test/src/index.tsx"],
+      "@vis/utils": ["./packages/utils/src/index.tsx"],
+      "@vis/common": ["./packages/common/src/index.tsx"],
+      "@vis/charts": ["./packages/charts/src/index.tsx"],
+      "@vis/components": ["./packages/components/src/index.tsx"],
+      "@/*": [
+        "./src/*"
+      ],
+      "ice": [
+        ".ice"
+      ],
+      "core/*": [
+        "./src/core/*"
+      ],
+      "demo/*": [
+        "./src/pages/demo/*"
+      ],
+      "visWeb/*": [
+        "./src/pages/vis-web/*"
+      ],
+      "visual/*": [
+        "./src/pages/vis-visual/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    ".ice"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "public",
+    "packages"
+  ]
+}

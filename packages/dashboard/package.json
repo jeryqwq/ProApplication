@@ -1,0 +1,40 @@
+{
+  "name": "@vis/dashboard",
+  "version": "0.1.0",
+  "description": "微前端方案 icestark 的子应用模板，用于快速初始化微应用",
+  "dependencies": {
+    "@ahooksjs/use-url-state": "^3.5.0",
+    "@vis/common": "workspace:^*",
+    "jsoneditor": "^9.8.0",
+    "jsoneditor-react": "^3.1.2",
+    "react-grid-layout": "^1.3.4",
+    "react-lazy-load": "^3.1.13"
+  },
+  "devDependencies": {
+    "build-plugin-antd": "^0.1.4",
+    "build-plugin-icestark": "^2.0.0",
+    "build-plugin-ignore-style": "^0.1.0",
+    "vite-plugin-import-context": "^1.0.0-rc.1"
+  },
+  "peerDependencies": {
+    "vite": ">=2.0.0"
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "^17.0.2"
+  },
+  "scripts": {
+    "start": "icejs start --port 7777  --mode dev",
+    "build": "icejs build  --mode prod",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "eslint:fix": "npm run eslint -- --fix",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ice-lab/react-materials/tree/master/scaffolds/icestark-child"
+  },
+  "private": true,
+  "originTemplate": "@icedesign/stark-child-scaffold"
+}

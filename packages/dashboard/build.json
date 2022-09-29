@@ -1,0 +1,48 @@
+{
+  "vite": true,
+  "outputDir": "dash",
+  "publicPath": "/dash",
+  "plugins": [
+    ["build-plugin-antd", {
+      "disableModularImport": true
+    }],
+    [
+      "build-plugin-icestark",
+      {
+        "type": "child"
+      }
+    ],
+    [
+      "build-plugin-moment-locales",
+      {
+        "locales": [
+          "zh-cn"
+        ]
+      }
+    ],
+    [
+      "build-plugin-ignore-style",
+      {
+        "libraryName": "antd"
+      }
+    ]
+  ],
+  "alias": {
+    "react/jsx-runtime": "react/jsx-runtime"
+  },
+  "proxy": {
+    "/maintain": {
+      "enable": true,
+      "target": "http://10.28.184.224:8113/"
+    },
+    "/vis": {
+      "enable": true,
+      "target": "http://10.28.184.132:8089/"
+    }
+  },
+  "lessLoaderOptions": {
+    "modifyVars": {
+      "root-entry-name": "default"
+    }
+  }
+}

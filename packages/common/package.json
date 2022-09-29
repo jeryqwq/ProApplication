@@ -1,0 +1,52 @@
+{
+  "name": "@vis/common",
+  "version": "0.0.0",
+  "description": "@vis/common",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro",
+    "ant-design/pro-components"
+  ],
+  "homepage": "http://10.28.184.132:4837/-/web/detail/vis",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "http://10.28.184.132/ssa-vis/vis-components/Index/"
+  },
+  "scripts": {
+    "build": "cross-env BUILD_TYPE=es father-build"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "dist",
+    "es"
+  ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.16.3",
+    "@vis/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://10.28.184.132:4837/"
+  },
+  "authors": [
+    "chenjie <chen.jie3@asiainfo-sec.com>"
+  ]
+}

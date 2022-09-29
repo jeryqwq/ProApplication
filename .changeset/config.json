@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "linked": [["@vis/*"]],
+  "access": "restricted",
+  "baseBranch": "master",
+  "fetch-depth": 0,
+  "updateInternalDependencies": "patch",
+  "ignore": ["@vis/dashboard"],
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+      "onlyUpdatePeerDependentsWhenOutOfRange": true
+  }
+}
