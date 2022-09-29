@@ -50,6 +50,15 @@ export default {
       },
     ],
   ],
+  navs: {
+    'zh-CN': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/jeryqwq/ProApplication',
+      },
+    ],
+  },
   metas: [
     {
       property: 'og:site_name',
