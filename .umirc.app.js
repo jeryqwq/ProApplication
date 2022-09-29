@@ -14,9 +14,6 @@ export default defineConfig({
     '@primary-color': '#0e5ecc',
   },
   proxy: {
-    '/lease-center': {
-      'target': 'http://121.204.145.151:44000/',
-      'changeOrigin': true,
-    }
+ 
   }
 });
