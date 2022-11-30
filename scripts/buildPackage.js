@@ -1,7 +1,7 @@
-const { utils } = require('umi');
+const execa = require('./utils/exec');
+const chalk = require('chalk')
 const inquirer = require('inquirer');
 const getPackages = require('./utils/getPackages');
-const { execa, chalk } = utils;
 const package = getPackages()
 const path = require('path')
 inquirer

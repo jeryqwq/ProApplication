@@ -10,22 +10,32 @@ nav:
 ---
 
 
-## 理念
+## next 的理念
 
-随着项目的增多，代码复用和版本管理显得格外的繁琐，版本升级没有日志，相互依赖的包需要手动管理版本，以往的组件库独立开发的方式并没有很好的区分组件和组件之间的关系，即我往往只需要一种类型的组件，例如图表，但还是不得不安装一整个组件库，并没有很好的对组件进行区分，如哪些是图表组件，哪些是功能组件，哪些是业务组件等，每次一个小改动就不得不直接发布一整个包，且无法支持本地调试，针对上述问题我们引入了Monorepo的概念，并且做了严格的CR机制，自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上，这往往需要脚手架、框架从自动化、设计上解决的问题。[精读《Monorepo 的优势》
-](https://zhuanlan.zhihu.com/p/65533186)
+随着项目的增多, 工程日益复杂,代码复用和版本管理显得格外的繁琐，版本升级没有日志，相互依赖的包需要手动管理版本，以往的组件库独立开发的方式并没有很好的区分组件和组件之间的关系，即我往往只需要一种类型的组件，例如图表，但还是不得不安装一整个组件库，并没有很好的对组件进行区分，如哪些是图表组件，哪些是功能组件，哪些是业务组件等，每次一个小改动就不得不直接发布一整个包，且无法支持本地调试，针对上述问题我们引入了Monorepo的概念，并且做了严格的CR机制，自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上，这往往需要脚手架、框架从自动化、设计上解决的问题。[精读《Monorepo 的优势》](https://zhuanlan.zhihu.com/p/65533186), [现代化前端应用为什么越来越离不开Monorepo](https://juejin.cn/post/6944877410827370504)
 
 
-## 包划分思路
+## 包划分思路(packages)
 
 - [Charts](/components/charts) 基于 G2 等图表库解决图表相关的渲染
 - [Utils](/components/utils) 工具库，常用的工具函数或者 hooks 等，如 transformData,uuid,timeFormat....
 - [Test](/components/test) 这里你可以做任意操作，如测试 CI 自动化脚本，功能相关的东西，总之就是随便玩
 - [Components](/components/components) 存放功能性组件，更偏向系统功能，如右键菜单，拖拽改变布局宽高...
 - [Common](/components/common) 其他相关通用性的东西
-- [Dashboard](/components/dashboard) 忽略打包的子应用
 - [Decorator](/components/decorator) 装饰器，包含svg渲染的所有动画和装饰，相比图片或者动图，可随意放大缩小，且轻量级。
 - `@vis/?` 等你添加
+
+
+## 子应用(projects)
+
+防止后期主应用过大增加dev和编译负担，我们把以往的主应用下不相关的部分拆分成了独立的项目，然后使用微前端和模块联邦来对接子应用（代码共享和状态管理），这样整个应用能hold住未来不断扩张的业务线和人员开发，也不会出现在不同应用中组件库代码被重复打包。我们特意将组件库代码从主应用中抽离出来，每个独立的子应用共享主应用内导出的exposes文件夹下的模块。
+
+- [/projects/dashboard]仪表板项目代码
+- [/projects/visual]画布项目项目代码
+- [/projects/dataModel]数据模型项目代码
+- [/projects/template]子应用模版
+
+[相关子应用接入查看这里](/docs/subapp)
 
 ## monorepo
 
@@ -66,20 +76,21 @@ nav:
 
 ```bash
 - .changeset         * 版本更新日志相关配置和记录文件
-- .dumi              * dumi 的相关配置，主要是主题等
+- .dumi              * dumi工作区目录，主题和相关配置等
 - .husky             * 规范commit配置
 - docs               * 存放公用的文档
-- features           * 与package功能一致，存放未来实验性的东西
+- projects           * 子应用目录,于主应用共享packages
 - mock               * api Mock
-- packages           * 我们维护的包, 如果你想贡献代码，这里是你最需要关注的
+- packages           * 我们维护的包
 - README.md          * 展示在 github 主页的代码
 - tests              * 编写测试用例的地方
 - src                * 主应用代码
+- exposes            * 模块联邦主应用导出的模块
 - public             * 部署所用的静态文件
 - scripts            * 开发或者部署所用的脚本
 - .prettierrc.js     * prettier 的相关配置
 - .eslintrc.js       * eslint 的配置
-- .umirc.js          * dumi 的核心配置
+- .umirc.js          * umi 的核心配置
 - webpack.config.js  * 编译 umd 包的配置文件
 - jest.config.js     * 测试环境的配置
 - pnpm-workspace.yaml* 工作空间的配置
@@ -88,13 +99,14 @@ nav:
 - pnpm-lock.yaml     * 依赖 lock 文件
 ```
 
-`coverage` ， `.umi` ， `.ice` 这几个文件夹比较特殊，`coverage` 是测试覆盖率文件，在跑完测试覆盖率后才会出现，`.umi` 是运行文档时的一些临时文件，在执行 `npm run docs` 时生成, `.ice`是主应用的临时文件，npm run visXxx后才会出现。
+`coverage` ， `.umi`  这几个文件夹比较特殊，`coverage` 是测试覆盖率文件，在跑完测试覆盖率后才会出现，`.umi` 是运行主应用时的一些临时文件，在执行 `npm run dev` 时生成
 
 ### 源码概览
 
 在 packages 文件夹中包含了我们所有的组件，每个组件一般都有一个 `src`，`package.json` 和 `README.md`。`package.json` , `README.md`,`tsconfig.js` 和`.fatherrc.ts`  可以在新建文件夹后通过执行 `npm run bootstrap` 来自动生成。
 
-`src` 中就是我们真正的源码，我们约定 `src` 下会有 demos 文件夹里面会存储所有的 demo, 方便提供编辑器的代码提示等功能被文档引用，并且 `${包名}.md` 的文件用于介绍这个组件，同时引入 demo 和 API 文档。
+`src` 中就是我们主应用的源码，我们约定 `src` 下会有 demos 文件夹里面会存储所有的 demo, 方便提供编辑器的代码提示等功能被文档引用，并且 `${包名}.md` 的文件用于介绍这个组件，同时引入 demo 和 API 文档。
+`projects`中就是我们整个子应用的源码，里面包含了一些独立的模块和应用。
 
 > 我们使用了 dumi 的语法，要求全部使用外置组件，用 code 引入，调试起来会更加方便。
 
@@ -110,12 +122,10 @@ nav:
 
 安装完成后请先执行`npm run build-lib`打包一边依赖包，然后你可以使用以下常用命令：
 
-- `npm run vis` # 运行主项目
-- `npm run visual` # 运行画布
-- `npm run dashboard` # 运行仪表板
+- `npm run dev` # 运行主项目
+- `npm run dev-project` # 运行子应用
 - `npm run dev-lib` # 本地调试vis库
-- `npm run build-lib` # (mac 平台)懒加载打包(esm, cjs格式)package下所有库(保留文件的引用关系,可以查看对应包下面的lib和es文件夹)，能解耦主应用代码，避免重复打包
-- `npm run build-lib-win` # (windows 平台)打包库
+- `npm run build-lib` # 懒加载打包(esm, cjs格式)package下所有库(保留文件的引用关系,可以查看对应包下面的lib和es文件夹)，能解耦主应用代码，避免重复打包
 - `npm run build-dist` # 打包生产环境下package下所有库(压缩，生成单文件)
 - `npm run docs` # 运行项目文档， 包含组件库文档和项目说明等
 - `npm run test` # 跑测试用例
@@ -149,6 +159,8 @@ nav:
 
 在对应的包内 src 目录下新增文件夹或者 ts 文件即可，记得在当前包下的 src/index.tsx 中导出你需要在外部被使用到的组件或者函数变量等。
 
+## 新增子应用
+内容有点多，[跳转](/docs/subapp)
 ### 文档规范
 
 - 每个包下的同名且小写的 md 文件为该包的总览，描述改包如何单独安装和该包下的所有东西的 demo 或者总体的展示出来， 如[charts 总览](/components/charts)。

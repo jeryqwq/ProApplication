@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const { utils } = require('umi');
+const execa = require('./utils/exec');
+const chalk = require('chalk')
 const inquirer = require('inquirer');
 const getPackages = require('./utils/getPackages');
 const _ = require('lodash')
-const { execa, chalk } = utils
 async function execHandler () {
   const tailPkgs = getPackages()
   // const res = await inquirer.prompt([

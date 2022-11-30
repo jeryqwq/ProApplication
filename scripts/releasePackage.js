@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const { utils } = require('umi');
-const { execa, chalk } = utils;
+const execa = require('./utils/exec');
+const chalk = require('chalk')
 
 // 增加版本号，在这之前我们已经单独打包过了
 const filePath = path.resolve(__dirname, '../', '.temp');

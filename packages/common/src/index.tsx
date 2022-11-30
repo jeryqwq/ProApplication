@@ -1,4 +1,4 @@
-import interceptors from './interceptors'
+import useAudio from './audio/useAudio'
 export {
-  interceptors,
+  useAudio,
 }

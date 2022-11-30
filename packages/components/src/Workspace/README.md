@@ -149,6 +149,53 @@ export default () => {
   </div>
 }
 ```
+
+### 开启面包屑
+
+⚠️:此功能仅适用于ProComponent项目中（开启了proLayout布局渲染）
+```jsx
+import React from 'react';
+import { Workspace } from '@vis/components'
+export default () => {
+  return <div style={{ widht: '100%', height: '500px', border: 'solid 1px red' }}>
+    <Workspace
+      initValue='dashboard'
+      showBread
+      tabs={[{title: '仪表板', key: 'dashboard', content: <div>123的内容</div>}, {title: '仪表板2',  key: 'dashboard2', content: <div>仪表板2的内容</div>}]}
+      desc="以单块组件为单位组成日常使用的系统页面。可视化配置界面，支持拖拽、缩放、自动布局、tab、多图表、手风琴等。"
+      breadcrumb={{
+          routes: [
+            {
+              path: '',
+              breadcrumbName: '一级页面',
+            },
+            {
+              path: '',
+              breadcrumbName: '二级页面',
+            },
+            {
+              path: '',
+              breadcrumbName: '当前页面',
+            },
+          ],
+        }}
+    />
+  </div>
+}
+```
+
+### 页脚
+
+```jsx
+import React from 'react';
+import { Workspace } from '@vis/components'
+import { Button } from 'antd'
+export default () => {
+  return <div style={{ widht: '100%', height: '500px', border: 'solid 1px red' }}>
+    <Workspace tabs={[{title: '仪表板', key: 'dashboard', content: <div>123的内容</div>}, {title: '仪表板2',  key: 'dashboard2', content: <div>仪表板2的内容</div>}]} desc="以单块组件为单位组成日常使用的系统页面。可视化配置界面，支持拖拽、缩放、自动布局、tab、多图表、手风琴等。"
+      footer={<Button.Group><Button type="primary" style={{marginRight: 10}}>保存</Button><Button type="primary">返回</Button></Button.Group>}
+    />
+  </div>
+}
+```
 <API src="./index.tsx"></API>
-
-

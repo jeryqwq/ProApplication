@@ -1,10 +1,10 @@
-/* eslint-disable max-len */
-import { BetaSchemaForm, ProFormColumnsType, ProFormInstance } from '@ant-design/pro-components';
+// @ts-nocheck
+import { BetaSchemaForm, ProBreadcrumb, ProFormColumnsType, ProFormInstance } from '@ant-design/pro-components';
 import { CSSProperties, MutableRefObject, useEffect, useState } from 'react';
 import useUrlState from '@ahooksjs/use-url-state';
-
+import React from 'react'
 import './index.less';
-
+import { Tabs } from 'antd';
 declare interface TabItem {
   /** 标题 */
   title: string;
@@ -14,18 +14,24 @@ declare interface TabItem {
   key: string;
 }
 
+declare interface BreadCrumbProps {
+  routes: {
+    path: string;
+    breadcrumbName: string;
+    children: BreadCrumbProps['routes'][]
+  }[],
+}
+
 declare interface WorksapceProps {
   /** tabs内容， 使用固定数据结构有利于优化，而不是Worksapce.Item传递单项内容  */
   tabs: TabItem[];
   /** 工作空间描述 */
   desc?: React.ReactNode;
-  /** 头部自定义样式 */
-  headerStyle?: CSSProperties;
-  /** 内容区自定义样式 */
+  /** 内容区自定义样式 ,自定义布局时会失效*/
   contentStyle?: CSSProperties;
   /** tab切换回调，传递当前的TabItem */
   onChange?: (i: TabItem) => void;
-  /** 初始化title值 */
+  /** 初始化key值 */
   initValue?: string;
   /** 自定义布局渲染 */
   children?: (i: TabItem | undefined) => React.ReactNode;
@@ -46,12 +52,17 @@ declare interface WorksapceProps {
    * @default type
    */
   urlKey?: string;
+  /** 自定义展示的面包屑 */
+  breadcrumb?: BreadCrumbProps;
+  /** 是否展示面包屑。为true自动渲染，优先breadcrumb参数 */
+  showBread?:boolean;
+  /** 底部的操作栏 */
+  footer?: React.ReactNode;
 }
 
 const prefix = 'vis-comp-wrokspace';
-
-function WorkSpace({ formRef = undefined, tabs, desc, initValue, value,
-  children, onChange, formColumns, formProps = {}, isUrlState, urlKey = 'type',
+function WorkSpace({ formRef = undefined, showBread, breadcrumb = {} as any , footer, tabs, desc, initValue, value,
+  children, onChange, formColumns, formProps = {}, isUrlState, urlKey = 'type', contentStyle,
   formRender }: WorksapceProps) {
   const _initVal = initValue || value || tabs[0].key;
   const [urlState, setUrlState] = useUrlState();
@@ -63,37 +74,50 @@ function WorkSpace({ formRef = undefined, tabs, desc, initValue, value,
   return (
     <div className={`${prefix}-wrap`}>
       <div className={`${prefix}-header`}>
+          {showBread && <div style={{ height: '30px' }}>
+              <ProBreadcrumb  {...breadcrumb as any}/>
+            </div>
+          }
         <div className={`${prefix}-title`}>
           {
             tabs.length === 1 ? (
               <div className={`${prefix}-label`}>
                 { tabs[0].title }
               </div>
-            ) : tabs.map(i => (
-              <div
-                className={`${`${prefix}-item`} ${active === i.key ? 'cur' : ''} `}
-                key={i.key}
-                onClick={() => {
-                  if (active !== i.key) {
-                    onChange && onChange(i);
-                    setActive(i.key);
-                    if (isUrlState) {
-                      setUrlState({ [urlKey]: i.key });
-                    }
-                  }
-                }}
-              >
-                { i.title }
-              </div>))
+            ) : <Tabs
+            className={`${prefix}-tabs`}
+            activeKey={active}
+            onChange={(key) => {
+              const curItem = tabs.find(i => i.key === key)
+              onChange && curItem && onChange(curItem);
+              setActive(key);
+              if (isUrlState) {
+                setUrlState({ [urlKey]: key });
+              }
+            }}
+            size='small'
+            items={ tabs.map(i => ({ label: i.title, key: i.key, children: undefined }))}
+            // tabBarExtraContent={tabBarExtraContent}
+            // {...tabProps}
+          >
+            {/* {tabs?.map((item) => {
+              return <Tabs.TabPane  {...item} key={item.key} tab={item.title} />;
+            })} */}
+          </Tabs>
           }
         </div>
-        <div className={`${prefix}-desc`}>{ desc }</div>
+        { desc && <div className={`${prefix}-desc`}>{ desc }</div> }
         <div className={`${prefix}-form`}>
           { formRender ? formRender(curItem) : <BetaSchemaForm formRef={formRef} columns={formColumns || []} submitter={false} layout="inline" {...formProps} /> }
         </div>
       </div>
       {
-        children ? children(curItem) : <div className={`${prefix}-content-wrap`}>{ (curItem)?.content }</div>
+        children ? children(curItem) : <div className={`${prefix}-content-wrap`} style={contentStyle}>{ (curItem)?.content }</div>
+      }
+      {
+        footer && <div className={`${prefix}-content-footer`}>
+          {footer}
+        </div>
       }
     </div>
   );

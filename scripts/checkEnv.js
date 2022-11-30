@@ -1,5 +1,4 @@
-const { utils } = require('umi');
-const {  chalk } = utils;
+const chalk = require('chalk');
 
 async function exec () {
   const ver = process.version

@@ -10,7 +10,6 @@ import { IRouteComponentProps, isBrowser } from 'umi';
 import './layout.less';
 import { useDarkreader } from './useDarkreader';
 moment.locale('zh-cn');
-
 const DarkButton = () => {
   const colorScheme = useMemo(() => {
     if (!isBrowser()) {

@@ -1,3 +1,12 @@
 import DragLayoutResize from './DragLayoutResize';
 import Workspace from './Workspace'
-export { DragLayoutResize, Workspace };
+import VisHeader from './VisHeader'
+import Marquee from './Marquee';
+import Condition from './Condition';
+export {
+  DragLayoutResize,
+  Workspace,
+  VisHeader,
+  Marquee,
+  Condition
+};

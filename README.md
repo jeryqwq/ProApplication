@@ -1,5 +1,4 @@
-<H1 style="text-align: center">现代化大型应用解决方案</H1>
-
+# [yourname](https://jeryqwq.github.io/build-docs/#/)
 ## PlatForm & Tools
 
 ### 我们推荐
@@ -16,16 +15,16 @@
 [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/)
 [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh)
 [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/)
-[![](https://img.shields.io/badge/-vite-yellow?logo=vite)](https://vitejs.dev/)
 [![ docs by dumi](https://img.shields.io/badge/docs-dumi-blue)](https://d.umijs.org/) 
+[![](https://img.shields.io/badge/base-umi-orange)](https://umijs.org/)
 ### 环境
 
 [![](https://img.shields.io/badge/-node_v16+-green?logo=node.js)](https://nodejs.org/en/)
 [![](https://img.shields.io/badge/pnpm_v7+-blue?logo=pnpm&style=flat-square)](https://code.visualstudio.com/)
 [![](https://img.shields.io/badge/-webpack_v5+-red?logo=webpack)](https://www.webpackjs.com/)
-[![](https://img.shields.io/badge/-vite_v2.9+-yellow?logo=vite)](https://vitejs.dev/)
+
 ## 理念
-随着研发代码的增多，代码复用和版本管理显得格外的繁琐，版本升级没有日志，相互依赖的包需要手动管理版本，以往的组件库独立开发的方式并没有很好的区分组件和组件之间的关系，往往只需要一种类型的组件，例如图表，但还是不得不安装一整个组件库，并没有很好的对组件进行区分，如哪些是图表组件，哪些是功能组件，哪些是业务组件等，造成组件库越来越大，编译打包效率降低，每次一个小改动就不得不直接发布一整个包预览效果，且无法支持本地调试等以下相关痛点。
+随着研发代码的增多, 工程日益复杂，代码复用和版本管理显得格外的繁琐，版本升级没有日志，相互依赖的包需要手动管理版本，以往的组件库独立开发的方式并没有很好的区分组件和组件之间的关系，往往只需要一种类型的组件，例如图表，但还是不得不安装一整个组件库，并没有很好的对组件进行区分，如哪些是图表组件，哪些是功能组件，哪些是业务组件等，造成组件库越来越大，编译打包效率降低，每次一个小改动就不得不直接发布一整个包预览效果，且无法支持本地调试等以下相关痛点。
 * 组件耦合严重，组件代码量大
 * 业务开发分工不明确，业务开发人员要关心非业务的代码
 * 编译慢，效率低
@@ -44,14 +43,13 @@
 * 搭建独立的文档系统和其他子应用时，相关依赖又要单独管理，又有上述的症状
 * 无法跨部门共享基建产物[资产元数据](/components/schema#资产元数据)
 
-针对上述问题我们引入了Monorepo的概念，把以往的单一组件库拆分为职责更细化的包，架构更清晰，解耦，并且做了严格的CR，CI机制(暂无CD)、自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上[精读《Monorepo 的优势》](https://zhuanlan.zhihu.com/p/65533186)
+针对上述问题我们引入了Monorepo的概念，把以往的单一组件库拆分为职责更细化的包，架构更清晰，解耦，子应用隔离，并且做了严格的CR，CI机制(暂无CD)、自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上[精读《Monorepo 的优势》](https://zhuanlan.zhihu.com/p/65533186), [现代化前端应用为什么越来越离不开Monorepo](https://juejin.cn/post/6944877410827370504)
 
 
 
 
 ### 包划分
-包下可以放子应用，也可以放需要打包的组件库代码等...
-- [@vis/dashboard](/components/dashboard) 独立的子应用, 已在流程中忽略，不走打包发布
+
 - [@vis/utils](/components/utils) 工具库，常用的工具函数或者 hooks 等，如 transformData,uuid,timeFormat....
 - [@vis/test](/components/test) 这里你可以做任意操作，如测试 CI 自动化脚本，功能相关的东西，总之就是随便玩
 - [@vis/charts](/components/charts) 基于[antv](https://antv.vision/zh)下大屏画布或者仪表板图表库二次封装后的组件，如：条形进度图，词云图，饼图等...
@@ -59,27 +57,48 @@
 - [@vis/common](/components/common) 其他相关且通用性强的东西
 - [@vis/decorator](/components/common) 装饰器，包含svg渲染的所有动画和装饰，相比图片或者动图，可随意放大缩小，且轻量级。
 
+### 子应用
+
+防止后期主应用过大增加dev和编译负担，我们把以往的主应用下不相关的部分拆分成了独立的项目，然后使用微前端和模块联邦来对接子应用（代码共享和状态管理），这样整个应用能hold住未来不断扩张的业务线和人员开发，也不会出现在不同应用中组件库代码被重复打包。我们特意将组件库代码从主应用中抽离出来，每个独立的子应用共享主应用内导出的exposes文件夹下的模块。
+
+- [/project/dataModel]数据模型项目代码
+- [/project/template]子应用模版
+
+[相关子应用接入查看这里](https://jeryqwq.github.io/build-docs/#/docs/subapp)
 
 ## 命令
 
 ### 运行
 我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在monorepo架构之上，pnpm能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比yarn和npm，pnpm能节约磁盘空间并提升安装速度，切避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和大部分主流开源项目抛弃npm,yarn，开始接入pnpm。
+
 - `pnpm i` 安装
-- `npm run start` # 运行主项目
+- `npm run dev` # 运行主项目
 - `npm run build` # 打包主项目
-- `npm run dash` # 运行你的子应用
-- `npm run dev-lib` # 本地调试vis库
+- `npm run dev-project` # 运行项目下的子应用(visual, dashboard, dataModel, ....)
 - `npm run build-lib` # 懒加载打包(esm, cjs格式)package下所有库(保留文件的引用关系,可以查看对应包下面的lib和es文件夹)，能解耦主应用代码，避免重复打包
-- `npm run build-dist` # 打包生产环境下package下所有库(压缩，生成单文件)
-- `npm run build-selectPkg` # 单独选择打包选中的库，防止后期包太多的情况全部打包消耗过多资源和时间
-- `npm run docs` # 运行项目文档， 包含组件库文档和项目文档规范等
+- `npm run build-dist` # 打包生产环境下package下所有库(压缩，生成单文件),适用于给其他团队项目中使用，仅忽略antd,proComponents,moment库
+- `npm run build-selectPkg` # 手动选择打包，防止后期包太多的情况全部打包消耗过多资源和时间
+- `npm run docs` # 运行项目文档， 包含组件库文档和项目说明等
 - `npm run test` # 跑测试用例
+
 [更多](/docs/getting-started)
 ### 发布
 
-- `npm run release` 提供界面交互可视化发包
-- `npm run release:only` 手动修改版本号后发包 [查看更多](/docs/publish)
+- `npm run release` 提供界面交互可视化自动发包
+- `npm run release:only` 手动修改版本号后发包 [查看更多](/#/docs/publish)
 
+### 部署
+为了很好的区分应用和对应的路由，我们建议所有子应用使用hash路由开发，这样就能统一路由风格，增加路由的可读性，且能减少很多不必要的nginx配置😊
+
+`http://10.28.184.132:8088/dash/#/list?type=dashboard`
+
+地址拆分解析：
+- `http://10.28.184.132:8088` - 主机地址
+- `/dash` - 路由的history用来区分子应用
+-  `/#/list` - hash路由参数为子应用自己的路由
+- `?type=dashboard` - 传参
+
+[查看更多](/#/docs/publish#部署)
 
 ## 相关工程插件
 - [changeSets](https://github.com/changesets/changesets) :发包工具

@@ -1,6 +1,6 @@
 ---
 title: 自动化测试
-order: 3
+order: 4
 group:
   path: /
 nav:

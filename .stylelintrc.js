@@ -1,3 +1,3 @@
-const { getStylelintConfig } = require('@iceworks/spec');
-
-module.exports = getStylelintConfig('react');
+module.exports = {
+  extends: require.resolve('@umijs/max/stylelint'),
+};

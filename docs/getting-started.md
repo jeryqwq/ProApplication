@@ -67,6 +67,10 @@ import '@vis/charts/dist/charts.css';
 ## 开发
 ### 调试Lib
 
+#### 目前：
+由于当前是初期，考虑到频繁的修改组件代码， 所以提供了组件在项目中热更新功能，但对应会有更多的消耗。在主应用中直接运行`npm run dev-project`即可, 在packages中修改你要调整的代码保存即可实时查看效果（需要对组件参与dev构建打包）
+
+#### 版本稳定后：
 在主应用中直接运行`npm run dev-lib`即可，会提示你输入需要调试的包名，然后选择对应的包修改代码即可
 ```bash
   npm run dev-lib
@@ -85,7 +89,7 @@ import '@vis/charts/dist/charts.css';
 ```
 <Alert type="error">
 <span style="color: red">
-`注： 这个功能包热更新仅适配vite模式，由于webpack的包查找机制，当热更新重新构建一次包后，webpack找不到这个包，从此以后都不会进行任何查找，哪怕包已经出来了，所以webpack模式下需要重启项目或者重新保存一下build.json文件重启下`
+`注： 这个功能会删除所有的umi的mfsu缓存文件，下次umi启动会比较久，不然会被umi一直缓存住，无法更新， 所以适用于packages下的包版本稳定，修改和调整少了之后`
 </span>
 </Alert>
 

@@ -24,30 +24,25 @@ $ yarn add @vis/common   --registry http://10.28.184.132:4837/
 ```
 
 
-## interceptors
-基于ice应用下的app.ts入口文件内request拦截器配置, 接入个大子应用时使用，否则无法全局提示和错误处理等
-<br/>
-使用方法: 在ice项目app.ts内
-```jsx | pure
-import { interceptors } from "@vis/common";
-import { runApp, IAppConfig } from 'ice';
 
-const appConfig: IAppConfig = {
-  app: {
-    getInitialData: async (ctx) => {
-      getConfigMap();
-      return {
-      };
-    },
-  },
-  request: {
-    withFullResponse: false,
-    // 拦截器
-    interceptors,
-  },
-  router: {
-    type: 'hash',
-  },
-};
-runApp(appConfig);
+## useAudio
+用于一些多媒体场景下的语音播报或者播放音频功能
+
+```jsx
+  import React, { useRef, useLayoutEffect } from 'react';
+  import { useAudio } from '@vis/common' 
+  export default () => {
+    const ref = useRef()
+    useAudio(ref, {
+        type: 'SPEAK',
+        speakText: 'Hello World!',
+        auto: false,
+        // loop: true,
+      })
+    return <div  ref={ref} onClick={() => {
+    }} >click</div>
+  }
 ```
+
+<API src="./audio/useAudio.tsx" hideTitle/>
+

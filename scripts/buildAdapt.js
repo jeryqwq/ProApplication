@@ -1,7 +1,6 @@
-const { utils } = require('umi');
+const execa = require('./utils/exec');
 const path = require('path')
-const { execa } = utils;
-execa(`pnpm`,['--filter', './packages/**',  '--filter', '!dashboard', 'build'], {
+execa(`pnpm`,['--filter', `'./packages/**'`, 'build'], {
   cwd: path.resolve(__dirname, `../`),
   stdio: 'inherit',
 })

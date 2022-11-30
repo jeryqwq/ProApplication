@@ -1,6 +1,6 @@
 ---
-title: commit & 发布 & 部署
-order: 4
+title: commit & 发布
+order: 5
 group:
   path: /
 nav:
@@ -34,28 +34,6 @@ nav:
 ### 手动发布
 
 当修改完对应的包内容和版本后，直接运行命令行`npm run release:only`，  changeset会自动检查你的包版本是否已发布，没有发布自动帮你发布。
-
-## 部署
-### 全量更新
-进入[部署地址](http://10.28.184.220:8888/job/vis-next/)后点击`Build Now`即可
-
-### 构建环境文件结构
-```bash
-- vis-web.html            * 主应用入口
-- vis-visual.html         * 画布入口
-- dash/                   * 仪表板
-- build-docs/             * 文档
-```
-### 增量更新
-可以手动打包后覆盖文件，也可以单独构建
-- 进入[仪表板增量](http://10.28.184.220:8888/job/vis-dash/)后点击`Build Now`即可
-- 进入[文档增量](http://10.28.184.220:8888/job/vis-docs/)后点击`Build Now`即可
-
-### 访问地址：
-* [主应用](http://10.28.184.132:8088/#/)
-* [仪表板](http://10.28.184.132:8088/dash/#/list)
-* [文档](http://10.28.184.132:8088/docs/#/)
-* [画布](http://10.28.184.132:8088/visual#/)
 
 
 ## 错误和警告

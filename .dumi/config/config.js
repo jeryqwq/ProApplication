@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { readdirSync } from 'fs';
-import { join } from 'path';
+import path, { join } from 'path';
+const isDev = process.env.NODE_ENV === 'development'
 
 const headPkgList = [];
 // utils must build before core
@@ -8,7 +9,6 @@ const headPkgList = [];
 const pkgList = readdirSync(join(__dirname, '../../packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgList.includes(pkg),
 );
-pkgList.splice(pkgList.findIndex(i => i === 'dashboard'), 1)
 const alias = pkgList.reduce((pre, pkg) => {
   pre[`@vis/${pkg}`] = join(__dirname, '../../packages', pkg, 'src');
   return {
@@ -35,30 +35,11 @@ const componentMenus = {
   ).map(i => i + '/README.md')],
 }
 
-
 export default {
-  title: 'your name',
+  title: 'yourname',
   mode: 'site',
   logo: '/icon.png',
-  extraBabelPlugins: [
-    [
-      'import',
-      {
-        libraryName: ['antd'],
-        libraryDirectory: 'es',
-        style: true,
-      },
-    ],
-  ],
-  navs: {
-    'zh-CN': [
-      null,
-      {
-        title: 'GitHub',
-        path: 'https://github.com/jeryqwq/ProApplication',
-      },
-    ],
-  },
+  // extraBabelPlugins: [],
   metas: [
     {
       property: 'og:site_name',
@@ -108,7 +89,7 @@ export default {
       },
       {
         title: '工具 & 装饰',
-        children: ['test', 'utils', 'decorator', 'common'],
+        children: ['test', 'decorator','utils', 'common'],
       },
       chartMenus,
       componentMenus,
@@ -118,6 +99,6 @@ export default {
   webpack5: {},
   exportStatic: {},
   mfsu: !isDeploy ? {} : undefined,
-  outputPath: 'build-docs',
-  publicPath: '/build-docs/'
+  outputPath: isDev ? undefined : 'build-docs',
+  publicPath: isDev ? undefined : '/build-docs/'
 };

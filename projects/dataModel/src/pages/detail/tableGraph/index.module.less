@@ -1,0 +1,100 @@
+.graphWrap{
+  white-space: nowrap;
+  background-color: white;
+  padding:20px;
+  box-sizing: border-box;
+  border: solid 5px transparent;
+  &.active{
+    border: solid 5px var(--ant-primary-color);
+  }
+  :global{
+    .graph-inner-content{
+      height: 200px;
+      overflow: scroll;
+      border: solid 5px transparent;
+      background-image: linear-gradient(90deg, rgba(93,92,64, 0.05) 10%, rgba(0, 0, 0, 0) 10%), linear-gradient(rgba(70 ,69, 54, 0.05) 10%, rgba(0,0,0,0) 10%);
+      background-size: 10px 10px;
+      background-size: 10px 10px;
+      background-position: 0 0,5px 5px;
+      background-color: white;
+  
+      .table-item{
+        width: 185px;
+        display: inline-block;
+        height: 30px;
+        border-top: 1px solid #dedede;
+        border-right: 1px solid #dedede;
+        border-bottom: 1px solid #dedede;
+        border-left: solid 2px var(--ant-primary-color);
+        line-height: 20px;
+        padding-left: 20px;
+        cursor: pointer;
+        margin-right: 30px;
+        position: relative;
+        margin-top: 15px;
+        padding: 5px;
+        background: white;
+         &:hover {
+           border: solid 1px var(--ant-primary-color);;
+            i {
+                display: inline-block;
+            }
+          }
+        i {
+          position: absolute;
+          right: 5px;
+          top: 6px;
+          display: none;
+          color: var(--ant-primary-color)
+        }
+         &.active{
+           padding-left: 0;
+          >.choose-method{
+            display: block;
+          }
+          >.content{
+            display: none;
+          }
+        }
+  
+        >.choose-method{
+          display: none;
+          .inner{
+            display: flex;
+            >.item{
+              flex: 1;
+              text-align: center;
+              transition: all .5s;
+              font-size: 12px;
+              &.active{
+                background: rgba(0,0,0,0.2);
+              }
+            }
+          }
+        }
+        >.content{
+          display: block;
+          line-height: 20px;
+          height: 20px;
+        }
+  
+        &.table-child {
+          margin-left: 30px;
+        }
+        &.table-parent{
+          color: #666;
+          &::after{
+            content: '';
+            display: inline-block;
+            width: 31px;
+            height: 50%;
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            border-top: solid 2px #eceef1;
+          }
+        }
+      }
+    }
+  }
+}

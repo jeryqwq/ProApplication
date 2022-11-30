@@ -9,7 +9,8 @@ import parseValueToMoment from './parseValueToMoment';
 import { runFunction } from './runFunction';
 import { observerDomResize } from './observerDomResize'
 import useAutoResize from './useAutoResize'
-import rsa from './rsa'
+import rsa, { DEFAULT_PUBLIC_KEY, PASSWORD_PUBLIC_KEY, JWT_PUBLIC_KEY } from './rsa'
+import { matchString } from './matchString'
 /** Type */
 import type {
   ProFieldProps,
@@ -43,6 +44,7 @@ export {
   parseValueToMoment,
   genCopyable,
   isImg,
+  matchString,
   isUrl,
   isBrowser,
   runFunction,
@@ -51,4 +53,7 @@ export {
   observerDomResize,
   useAutoResize,
   rsa,
+  DEFAULT_PUBLIC_KEY,
+  PASSWORD_PUBLIC_KEY,
+  JWT_PUBLIC_KEY
 };

@@ -1,0 +1,23 @@
+{
+  "name": "@vis/template",
+  "version": "0.1.0",
+  "description": "微前端方案  的子应用模板，用于快速初始化微应用",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+  },
+  "scripts": {
+    "dev": " cross-env SOCKET_SERVER=http://localhost:7780/  PORT=7780  max dev",
+    "build": "max build"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "private": true
+}
