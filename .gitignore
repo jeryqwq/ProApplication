@@ -99,8 +99,7 @@ dist/
 tmp/
 /packages/*/lib/
 .happypack
-/dist-docs/*
-/packages/*/build-*
+/build-doc/*
 
 
 # production
