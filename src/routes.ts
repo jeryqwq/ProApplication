@@ -1,4 +1,3 @@
-
 export default [
   { path: '/', redirect: '/home' },
   {
@@ -14,12 +13,12 @@ export default [
       {
         name: '权限演示',
         path: '/access',
-        component: './Access'
+        component: './Access',
       },
       {
         name: 'CRUD 示例',
         path: '/table',
-        component: './Table'
+        component: './Table',
       },
       {
         name: '测试',
@@ -28,14 +27,14 @@ export default [
           {
             name: '测试主页',
             path: '/test/index',
-            component: './Test'
+            component: './Test',
           },
           {
             name: '测试1',
             path: '/test/test1',
-            component: './Test/Test1'
+            component: './Test/Test1',
           },
-        ]
+        ],
       },
       {
         name: '微前端',
@@ -45,22 +44,22 @@ export default [
             name: '仪表板',
             path: '/subApp/dash/*',
             // component: './MicroApp/dash'
-            microApp: 'dash'
+            microApp: 'dash',
           },
           {
             name: '数据模型',
             path: '/subApp/dataModel/*',
             // component: './MicroApp/index'
-            microApp: 'dataModel'
+            microApp: 'dataModel',
           },
           {
             name: '画布',
             path: '/subApp/visual/*',
             // component: './MicroApp/index'
-            microApp: 'visual'
-          }
-        ]
+            microApp: 'visual',
+          },
+        ],
       },
-    ]
+    ],
   },
-]
+];

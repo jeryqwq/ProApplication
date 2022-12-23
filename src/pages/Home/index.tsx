@@ -1,27 +1,35 @@
-import Guide from '@/components/Guide';
-import { useModel } from '@umijs/max';
-import styles from './index.module.less';
-import { useLocation, useParams } from 'react-router-dom';
-import { Workspace } from '@vis/components'
+import { Workspace } from '@vis/components';
 import { Button } from 'antd';
+import { useParams } from 'react-router-dom';
+import styles from './index.module.less';
 import Space1 from './Space1';
 import Space2 from './Space2';
 const HomePage: React.FC = (props) => {
-  const location  = useParams();
+  const location = useParams();
   return (
-      <div className={styles.container}>
-        <Workspace
-          isUrlState
-          showBread
-          footer={<Button.Group><Button type="primary" style={{marginRight: 10}}>保存</Button><Button type="primary">返回</Button></Button.Group>}
-          breadcrumb={{
-            routes:[{ path: '/home', breadcrumbName: '主页面包屑', children: [] }]
-          }}
-          desc="初始化demo，用来展示workSpace的基本用法, 面包屑只在多层开启，单层需要手动配置"
-          formProps={{
-            size: 'small'
-          }}
-          formColumns={[{
+    <div className={styles.container}>
+      <Workspace
+        isUrlState
+        showBread
+        footer={
+          <Button.Group>
+            <Button type="primary" style={{ marginRight: 10 }}>
+              保存
+            </Button>
+            <Button type="primary">返回</Button>
+          </Button.Group>
+        }
+        breadcrumb={{
+          routes: [
+            { path: '/home', breadcrumbName: '主页面包屑', children: [] },
+          ],
+        }}
+        desc="初始化demo，用来展示workSpace的基本用法, 面包屑只在多层开启，单层需要手动配置"
+        formProps={{
+          size: 'small',
+        }}
+        formColumns={[
+          {
             title: '标题',
             dataIndex: 'title',
             formItemProps: {
@@ -48,20 +56,22 @@ const HomePage: React.FC = (props) => {
               xs: 24,
               md: 12,
             },
-          }]}
-          tabs={[{
+          },
+        ]}
+        tabs={[
+          {
             key: '1',
             title: '工作区1',
-            content: <Space1 />
+            content: <Space1 />,
           },
           {
             key: '2',
             title: '工作区2',
-            content: <Space2 />
-          }
+            content: <Space2 />,
+          },
         ]}
-        />
-      </div>
+      />
+    </div>
   );
 };
 

@@ -1,0 +1,46 @@
+@comp-cls: ~'vis-comp-context-menu';
+
+.@{comp-cls}-wrap{
+  min-width: 100px;
+  background: white;
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  padding: 8px 0;
+  >li{
+    list-style: none;
+    line-height: 32px;
+    margin: 0;
+    font-size: 13px;
+    height: 32px;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    color: #333;
+    .@{comp-cls}-sitem{
+      position: relative;
+      padding: 0 22px 0 16px;
+    }
+    .@{comp-cls}-icon {
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+      font-size: 12px;
+    }
+    .@{comp-cls}-arrow{
+      position: absolute;
+      right: 2px;
+      top: calc( 50% - 6px );
+      font-size: 12px;
+    }
+    &:hover{
+      background: #ecf5ff;
+    }
+    &.@{comp-cls}-disabled{
+      cursor: not-allowed;
+      color: gray;
+      &:hover{
+        background: none;
+      }
+    }
+  }
+}

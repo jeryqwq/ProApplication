@@ -1,9 +1,10 @@
-import 'antd/dist/antd.variable.less';
-import { RequestConfig } from '@umijs/max'
+import { RequestConfig } from '@umijs/max';
 import { notification } from 'antd';
+import 'antd/dist/antd.variable.less';
 
 // 更多信息见文档：https://next.umijs.org/docs/api/runtime-config#getinitialstate
-export async function getInitialState(): Promise<any> { // 获取用户信息， 权限
+export async function getInitialState(): Promise<any> {
+  // 获取用户信息， 权限
   return { name: '@umijs/max', username: 'Chencc' };
 }
 export const request: RequestConfig = {
@@ -18,7 +19,7 @@ export const request: RequestConfig = {
       notification.error({
         message: data.message || '请求失败',
       });
-      return data
+      return data;
     },
   ],
 };

@@ -1,4 +1,3 @@
-
 export default () => {
-    return <div>index</div>
-}
+  return <div>index</div>;
+};

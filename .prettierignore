@@ -13,3 +13,4 @@ yarn.lock
 **/lib
 **/es
 **\__snapshots__\**
+assets/
