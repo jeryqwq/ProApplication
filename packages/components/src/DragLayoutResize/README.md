@@ -9,9 +9,10 @@ nav:
 
 ## DragLayoutResize 组件描述
 
-拖拽布局，最初版本，后期添加拖拽样式自定义渲染等功能，基于 flex 布局实现，故在使用时记得外层包一个 flex 代码的包裹层，todo： 
+拖拽布局，最初版本，后期添加拖拽样式自定义渲染等功能，基于 flex 布局实现，故在使用时记得外层包一个 flex 代码的包裹层，todo：
+
 - 自定义渲染拖拽元素
-- 位置信息保存的localStorge
+- 位置信息保存的 localStorge
 - min max 配置
 
 ### 横向
@@ -20,7 +21,7 @@ nav:
 import React from 'react';
 import { DragLayoutResize } from '@vis/components';
 export default () => {
-  const { DRAG_DIRECTION } = DragLayoutResize
+  const { DRAG_DIRECTION } = DragLayoutResize;
   return (
     <div style={{ display: 'flex' }}>
       <div style={{ flex: 1, background: 'yellow' }}></div>
@@ -40,7 +41,7 @@ export default () => {
 ```jsx
 import React from 'react';
 import { DragLayoutResize } from '@vis/components';
-  const { DRAG_DIRECTION } = DragLayoutResize
+const { DRAG_DIRECTION } = DragLayoutResize;
 
 export default () => {
   return (
