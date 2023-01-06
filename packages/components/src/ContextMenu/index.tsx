@@ -60,7 +60,7 @@ const ContextMenu = function (props: ContextMenuProps) {
   {
     menus.map(i => <Item loadding={loadding} item={i} curData={ curItem } onClick={onClick} prevRects={prevRects} depth={depth + 1} setMenuVisible={setMenuVisible}/>)
   }
-</SubMenu>, [onClick, menus, loadding]) // 排除其它惰性访问的属性
+</SubMenu>, [onClick, menus, loadding])
 }
 
 ContextMenu.Item = Item

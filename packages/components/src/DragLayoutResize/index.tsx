@@ -1,5 +1,16 @@
 import { ConfigProvider } from 'antd';
-import { CSSProperties, useCallback, useContext, useLayoutEffect, useRef } from 'react';
+import {
+  VerticalLeftOutlined,
+  VerticalAlignMiddleOutlined,
+} from '@ant-design/icons';
+
+import {
+  CSSProperties,
+  useCallback,
+  useContext,
+  useLayoutEffect,
+  useRef,
+} from 'react';
 import './index.less';
 
 const DRAG_DIRECTION = {
@@ -8,17 +19,30 @@ const DRAG_DIRECTION = {
   RIGHT_LEFT: 'RIGHT_LEFT',
   BUTTOM_TOP: 'BUTTOM_TOP',
 };
-
+const WRAP_STYLES = {
+  [DRAG_DIRECTION.LEFT_RIGHT]: {
+    marginLeft: 10,
+  },
+  [DRAG_DIRECTION.RIGHT_LEFT]: {
+    marginRight: 10,
+  },
+  [DRAG_DIRECTION.TOP_BUTTOM]: {
+    marginBottom: 10,
+  },
+  [DRAG_DIRECTION.BUTTOM_TOP]: {
+    marginBottom: 10,
+  },
+};
 const EL_ATTRS = {
   [DRAG_DIRECTION.LEFT_RIGHT]: {
-    width: '5px',
+    width: '7px',
     height: '100%',
-    left: '0px',
+    left: '-7px',
     top: '0px',
     cursor: 'ew-resize',
   },
   [DRAG_DIRECTION.RIGHT_LEFT]: {
-    width: '5px',
+    width: '7px',
     height: '100%',
     right: '0px',
     top: '0px',
@@ -26,14 +50,14 @@ const EL_ATTRS = {
   },
   [DRAG_DIRECTION.TOP_BUTTOM]: {
     width: '100%',
-    height: '5px',
+    height: '10px',
     left: '0px',
-    bottom: '0px',
+    bottom: '-10px',
     cursor: 'row-resize',
   },
   [DRAG_DIRECTION.BUTTOM_TOP]: {
     width: '100%',
-    height: '5px',
+    height: '10px',
     left: '0px',
     top: '0px',
     cursor: 'row-resize',
@@ -59,6 +83,7 @@ function DragLayoutResize(props: {
   const elWrap = useRef<HTMLDivElement>(null);
   const elLine = useRef<HTMLDivElement>(null);
   const { direction, children, style } = props;
+
   useLayoutEffect(() => {
     let prevX: number;
     let prevY: number;
@@ -66,7 +91,7 @@ function DragLayoutResize(props: {
     closeMove = () => {
       isStartMove = false;
     };
-    mouseMoveFn = e => {
+    mouseMoveFn = (e) => {
       if (isStartMove && el) {
         e.stopPropagation();
         const { x, y } = e;
@@ -81,7 +106,8 @@ function DragLayoutResize(props: {
         }
         if (
           deviationY &&
-          (direction === DRAG_DIRECTION.BUTTOM_TOP || direction === DRAG_DIRECTION.TOP_BUTTOM)
+          (direction === DRAG_DIRECTION.BUTTOM_TOP ||
+            direction === DRAG_DIRECTION.TOP_BUTTOM)
         ) {
           el.style.height = `${y - top}px`;
         }
@@ -98,11 +124,12 @@ function DragLayoutResize(props: {
   });
   const scrollBottom = useCallback((e: React.UIEvent<HTMLElement>) => {
     // 适配滚动条情况
-    elLine.current && (elLine.current.style.bottom = `${-e?.currentTarget.scrollTop}px`);
+    elLine.current &&
+      (elLine.current.style.bottom = `${-e?.currentTarget.scrollTop}px`);
   }, []);
   return (
     <div
-      style={{ position: 'relative', ...style }}
+      style={{ position: 'relative', ...WRAP_STYLES[direction], ...style }}
       ref={elWrap}
       id={props?.domId}
       onScroll={scrollBottom}
@@ -114,7 +141,28 @@ function DragLayoutResize(props: {
           isStartMove = true;
         }}
         ref={elLine}
-      />
+      >
+        {direction === DRAG_DIRECTION.LEFT_RIGHT ||
+        direction === DRAG_DIRECTION.RIGHT_LEFT ? (
+          <VerticalLeftOutlined
+            style={{
+              position: 'absolute',
+              top: 'calc( 50% - 5px )',
+              left: '-3px',
+              fontSize: '10px',
+            }}
+          />
+        ) : (
+          <VerticalAlignMiddleOutlined
+            style={{
+              position: 'absolute',
+              left: 'calc( 50% - 5px )',
+              top: '0px',
+              fontSize: '10px',
+            }}
+          />
+        )}
+      </div>
       {children}
     </div>
   );

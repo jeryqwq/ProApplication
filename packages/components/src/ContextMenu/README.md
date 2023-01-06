@@ -15,7 +15,7 @@ nav:
 
 
 - 当菜单超出屏幕时需要做UI适配，会导致顶部和底部列表的选项无法全部展示
-- 当菜单处于局部滚动条内时，当用户滚动时，菜单也应该对应的滚动，否则无法继续操作 - 未处理
+- 当菜单处于局部滚动条内时，当用户滚动时，菜单也应该对应的滚动，否则无法继续操作
 - 需要适配多级菜单和动态展开,展开式也需要对UI做判断，需要适配屏幕
 - 菜单禁用状态适配
 - 动态生成菜单
@@ -272,6 +272,34 @@ export default () => {
   </div>
 }
 ```
+
+## 跟随滚动
+
+用来在有滚动条的父元素内触发右键菜单是，让其跟随滚动条一起滚动。
+
+```tsx
+import { useContextMenu } from '@vis/components';
+import React from 'react'
+
+export default function MyContextMenu () {
+  const { Trigger, ContextMenu } = useContextMenu({
+    getMenuContainer() {
+      return document.getElementById('my-el')
+    }
+  })
+
+  return <div style={{height: 200, overflow: 'scroll'}}>
+    <div  id="my-el" style={{width: 500, height: 800, background: 'red', position: 'relative'}}>
+      <Trigger data={{id: 'click'}}>单击触发</Trigger>
+      <ContextMenu menus={[{ label: '操作1', value: '1' }]} onClick={(e, data, menu) => {
+        alert(`data.id: ${data.id} menu.value: ${menu.value}`)
+      }}/>
+    </div>
+    
+  </div>
+}
+```
+
 
 
 ## 自定义封装
