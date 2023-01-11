@@ -105,45 +105,63 @@ export default () => {
 };
 ```
 
-<API src="./index.tsx" ></API>
+<API id="./index.tsx" ></API>
 
 ### Config
-词云图配置
-<API src="./api.tsx" hideTitle></API>
 
-
+词云图配置 <API id="./api.tsx" hideTitle></API>
 
 ## 默认配置
+
 ```ts
 export const defaultOptions = {
   mode: MODE.NORMAL, // 模式 ， 滚动 ｜ 普通
   orientation: TEXT_ORIENTATION.RANDOM, // 方向
   animate: true, // 是否开启普通模式的动画
-  color: ["#ff9ecc", "#00b6ff", "#f3bd00", "#884dff", "#d3f0ff ", "#5cc4ee", "#eadf2b", "#e1583e", "#05e1b5", "#3e61e1", "#884dff", "#c59eff", "#06b8d1"],
-  colors: [{
-    from: 0,
-    to: 60,
-    name: '差',
-    color: 'red'
-  }, {
-    from: 61,
-    to: 79,
-    name: '良',
-    color: 'blue'
-  },{
-    from: 80,
-    to: 100,
-    name: '优秀',
-    color: 'green'
-  }],
+  color: [
+    '#ff9ecc',
+    '#00b6ff',
+    '#f3bd00',
+    '#884dff',
+    '#d3f0ff ',
+    '#5cc4ee',
+    '#eadf2b',
+    '#e1583e',
+    '#05e1b5',
+    '#3e61e1',
+    '#884dff',
+    '#c59eff',
+    '#06b8d1',
+  ],
+  colors: [
+    {
+      from: 0,
+      to: 60,
+      name: '差',
+      color: 'red',
+    },
+    {
+      from: 61,
+      to: 79,
+      name: '良',
+      color: 'blue',
+    },
+    {
+      from: 80,
+      to: 100,
+      name: '优秀',
+      color: 'green',
+    },
+  ],
   sizeMin: 12,
   sizeMax: 16,
   gridSize: 0, //字符间隔 (不包含padding)
-  borderColor: "rgba(105,207,255)", // 单项的css配置
+  borderColor: 'rgba(105,207,255)', // 单项的css配置
   borderWidth: 0,
-  backgroundColor: "rgba(16,22,24,0)",
+  backgroundColor: 'rgba(16,22,24,0)',
   padding: [0, 0], // 单项的padding属性
-  events: { // 自定义事件
+  events: {
+    // 自定义事件
     // click: (item: MappingDataItem, instance: WordChartBase) => {
     //   console.log(item, '----')
     // }
@@ -161,15 +179,15 @@ export const defaultOptions = {
       color: '#fff',
       fontFamily: 'Microsoft YaHei',
       fontSize: 14,
-      lineHeight: 30
+      lineHeight: 30,
     },
     bgStyle: {
       width: 0,
       height: 0,
-      url: ""
+      url: '',
     },
-  }
-}
-
+  },
+};
 ```
+
 为了提高通用性，我们把配置也单独抽出到组件

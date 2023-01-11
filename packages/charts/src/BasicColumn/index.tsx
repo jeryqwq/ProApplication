@@ -1,7 +1,18 @@
-import { Column, ColumnConfig } from '@ant-design/plots';
-import './index.less'
-export default () => {
-  const data = [
+import { Column, ColumnConfig as _ColumnConfig } from '@ant-design/plots';
+import React from 'react';
+import './index.less';
+
+interface BasicColumnProps {
+  config?: _ColumnConfig;
+  data?: Array<{ type: string; sales: number }>;
+}
+
+export const ColumnConfig: React.FC<_ColumnConfig> = ({}) => <></>;
+
+export default (props: BasicColumnProps) => {
+  const { config, data } = props;
+
+  const tempData = [
     {
       type: '家具家电',
       sales: 38,
@@ -35,8 +46,11 @@ export default () => {
       sales: 38,
     },
   ];
-  const config: ColumnConfig = {
-    data,
+
+  const renderData = data || tempData;
+
+  const renderConfig: _ColumnConfig = {
+    data: renderData,
     xField: 'type',
     yField: 'sales',
     label: {
@@ -63,6 +77,7 @@ export default () => {
         alias: '销售额',
       },
     },
+    ...config,
   };
-  return <Column {...config} />
+  return <Column {...renderConfig} />;
 };

@@ -38,7 +38,7 @@ declare interface VisHeaderProps {
   /** 受控模式value值 */
   value?: string;
   /** 多tabs时右侧渲染使用tabBarExtraContent渲染，而不是formRender */
-  tabBarExtraContent?: React.ReactDOM,
+  tabBarExtraContent?: React.ReactNode,
 }
 
 const prefix = 'vis-comp-header';

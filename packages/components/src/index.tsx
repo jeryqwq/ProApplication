@@ -1,13 +1,13 @@
 import DragLayoutResize from './DragLayoutResize';
-import Workspace from './Workspace'
-import VisHeader from './VisHeader'
+import Workspace from './Workspace';
+import VisHeader from './VisHeader';
 import Marquee from './Marquee';
 import Condition from './Condition';
-import useContextMenu from './ContextMenu/useContextMenu'
-import ContextMenu, { ContextMenuItem } from './ContextMenu'
-import VisCRUD from './VisCRUD';
+import useContextMenu from './ContextMenu/useContextMenu';
+import ContextMenu, { ContextMenuItem } from './ContextMenu';
+import VisCRUD from './VisCrud';
 
-import type { CondRef } from './Condition'
+import type { CondRef } from './Condition';
 export {
   DragLayoutResize,
   Workspace,
@@ -16,9 +16,6 @@ export {
   Condition,
   useContextMenu,
   ContextMenu,
-  VisCRUD
+  VisCRUD,
 };
-export type {
-  ContextMenuItem,
-  CondRef
-}
+export type { ContextMenuItem, CondRef };

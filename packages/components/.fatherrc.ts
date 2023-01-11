@@ -20,7 +20,6 @@ if (type === 'lib') {
 
 if (type === 'es') {
   config = {
-   
     cjs: false,
     esm: {
       type: 'babel',

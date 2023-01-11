@@ -93,4 +93,4 @@ export default () => {
 };
 ```
 
-<API src="./index.tsx"></API>
+<API id="./index.tsx"></API>

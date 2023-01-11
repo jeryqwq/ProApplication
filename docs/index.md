@@ -1,35 +1,31 @@
 ---
 title: yourname - 下一代next主应用
-order: 10
-sidebar: false
 hero:
   title: yourname
-  desc: 🏆 现代化大型前端工程化应用 🚀
+  description: 🏆 现代化大型工程解决方案 🚀
   actions:
     - text: 🏮🏮 快速开始 →
-      link: /docs/intro
+      link: /guide
 
 features:
-  - icon: https://img.alicdn.com/imgextra/i3/O1CN01eBiy611b67KLFOxi3_!!6000000003415-2-tps-200-200.png
+  - emoji: 🏰
     title: Umi生态
-    desc: 基于 React 的应用研发框架 [umi](https://umijs.org/)，支持 Vite & Webpack 模式，同时提供了微前端、Hooks、一体化等解决开发，让前端开发更加简单规范,带给你简单而愉悦的 Web 开发体验。
-  - icon: https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg
-    title: Ant Design生态
-    desc: 接入 [Ant Design](https://ant-design.gitee.io/index-cn), [ProComponents](https://procomponents.ant.design/) ，提供了更高级别的抽象支持，开箱即用。可以显著的提升制作 CRUD 页面的效率，更加专注于页面。。
-  - icon: https://pnpm.io/zh/img/pnpm-no-name-with-frame.svg
-    title: pnpm & changeset
-    desc: 节约磁盘空间并提升安装速度，[pnpm](https://pnpm.io/zh/) 比其他包管理器快 2 倍，全场景自动化脚本支持，简化开发体验 & 版本管理，change-log日志自动生成。
-  - icon: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr
-    title: monorepos & Jest
-    desc: 多包管理,只需在一个仓库中开发，编码会相当方便, 代码复用高，方便进行代码重构。仓库体积小，模块划分清晰，搭配自动化测试工具，代码更新出现问题时能快速定位bug并修复[更多](https://zhuanlan.zhihu.com/p/77577415)。
-  - icon: https://img.alicdn.com/imgextra/i3/O1CN01eBiy611b67KLFOxi3_!!6000000003415-2-tps-200-200.png
-    title: API&组件研发工具
-    desc: 丰富的Markdown扩展，不止于渲染组件demo，使得组件的文档不仅易于编写、管理，还好看、好用,API自动生成, 适配移动端，兼容主题系统，资产数据化能力[dumi](https://d.umijs.org/zh-CN)。
-  - icon: https://gw.alipayobjects.com/zos/antfincdn/Eb8IHpb9jE/Typescript_logo_2020.svg
+    description: 基于 React18+ 的应用研发框架<a href="https://umijs.org/" target="_blank" rel="noreferrer">[Umi4.x]</a> ，支持 Vite & Webpack 模式, mfsu极速dev环境编译优化，同时提供了微前端、Hooks、高度集成dumi等一体化解决方案，让前端开发更加简单规范,带给你简单而愉悦的 Web 开发体验。
+  - emoji: 🎨
+    title: Ant Design生态 + 丰富自研组件
+    description: 接入 <a href="https://ant-design.gitee.io/index-cn" target="_blank" rel="noreferrer">[Ant Design]</a>, <a href="https://procomponents.ant.design/" target="_blank" rel="noreferrer">[ProComponents]</a> ，提供了更高级别的抽象支持，开箱即用。可以显著的提升制作 CRUD 页面的效率，更加专注于页面，基于以上封装了<a href="/#/components">[更上层的组件]</a>，加快研发效率。
+  - emoji: 🚥
+    title: pnpm & monorepos
+    description: 节约磁盘空间并提升安装速度，<a href="https://pnpm.io/zh/" target="_blank" rel="noreferrer">[pnpm]</a> 比其他包管理器快 2 倍，全场景自动化脚本支持，简化开发体验 , 版本管理，change-log日志自动生成， 多包管理,只需在一个仓库中开发，编码会相当方便, 代码复用高，方便进行代码重构, 仓库体积小，模块划分清晰。
+  - emoji: 💎
+    title: API组件研发工具 & 极速构建
+    description: 丰富的Markdown扩展，不止于渲染组件demo，使得组件的文档不仅易于编写、管理，还好看、好用,API自动生成, 适配移动端，兼容主题系统，资产数据化能力<a href="https://d.umijs.org" target="_blank" rel="noreferrer">[dumi2.x]</a>, 最新版组件构建工具<a href="https://github.com/umijs/father/blob/master/guide/guide/index.md" target="_blank" rel="noreferrer">[father4.x]</a>,更高效、高质量地研发 NPM 包、生成构建产物、再完成发布。
+  - emoji: 📈
     title: TypeScript & AntV
-    desc: 使用 TypeScript 开发，组件和工具包提供完整的类型定义文件 & 企业级可视化解决方案[antv](https://antv.vision/zh)
-
-footer:
+    description: 使用 TypeScript 开发，组件和工具包提供完整的类型定义文件，引入类型定义(进行类型检查)和编译器,可以避免JavaScript大多数runtime错误,更可靠,易维护,更清晰, 类型就是最好的注释 & 企业级可视化解决方案<a href="https://antv.vision/zh" target="_blank" rel="noreferrer">[antv]</a>，任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。
+  - emoji: 💡
+    title: CI集成 + 增量更新
+    description: 集成发版工具<a href="https://github.com/changesets/changesets" target="_blank" rel="noreferrer">[changeset]</a>，自动打tag，校验<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/" target="_blank" rel="noreferrer">[commit规范]</a>，让版本管理变得轻松自如，搭配自动化测试工具，代码更新出现问题时能快速定位bug并修复，基于微前端下，支持各大子应用<a href="/#/guide/publish#部署">增量更新部署</a>，做到改哪更新哪，进一步优化编译效率。
 ---
 
 ### 我们推荐
@@ -38,7 +34,7 @@ footer:
 
 ### 相关技术栈
 
-[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) &nbsp; [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://reactjs.org/)&nbsp; [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn)&nbsp; [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/)&nbsp; [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh)&nbsp; [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/)&nbsp; [![ docs by dumi](https://img.shields.io/badge/docs-dumi-blue)](https://d.umijs.org/)
+[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) &nbsp; [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/)&nbsp; [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn)&nbsp; [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/)&nbsp; [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh)&nbsp; [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/)&nbsp; [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/)
 
 ### 环境
 
@@ -46,7 +42,7 @@ footer:
 
 ### 运行
 
-我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在 monorepo 架构之上，pnpm 能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比 yarn 和 npm，pnpm 能节约磁盘空间并提升安装速度，切避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过 pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和开源项目抛弃 npm,yarn，开始接入 pnpm。[快速开始](/docs/getting-started)
+我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在 monorepo 架构之上，pnpm 能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比 yarn 和 npm，pnpm 能节约磁盘空间并提升安装速度，切避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过 pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和开源项目抛弃 npm,yarn，开始接入 pnpm。[快速开始](/guide/getting-started)
 
 - `pnpm i` 安装
 - `npm run dev` # 运行主项目
@@ -55,17 +51,53 @@ footer:
 - `npm run build-lib` # 懒加载打包(esm, cjs 格式)package 下所有库(保留文件的引用关系,可以查看对应包下面的 lib 和 es 文件夹)，能解耦主应用代码，避免重复打包
 - `npm run build-dist` # 打包生产环境下 package 下所有库(压缩，生成单文件),适用于给其他团队项目中使用，仅忽略 antd,proComponents,moment 库
 - `npm run build-selectPkg` # 手动选择打包，防止后期包太多的情况全部打包消耗过多资源和时间
-- `npm run docs` # 运行项目文档， 包含组件库文档和项目说明等
+- `npm run doc` # 运行项目文档， 包含组件库文档和项目说明等
 - `npm run test` # 跑测试用例
+
+### 全局 API
+
+已接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
+
+#### without
+
+```tsx ｜ pure
+import { Spin } from 'antd';
+import { useState } from 'react';
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <Spin />
+      {count}
+    </div>
+  );
+}
+```
+
+#### with
+
+相关 API 直接不需要 import 即可使用
+
+```tsx ｜ pure
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <Spin />
+      {count}
+    </div>
+  );
+}
+```
 
 ### 发布
 
 - `npm run release` 提供界面交互可视化发包
-- `npm run release:only` 手动修改版本号后发包 [查看更多](/docs/publish)
+- `npm run release:only` 手动修改版本号后发包 [查看更多](/guide/publish)
 
 ### 部署
 
-为了很好的区分应用和对应的路由，我们建议所有子应用使用 hash 路由开发，这样就能统一路由风格，增加路由的可读性，且能减少很多不必要的 nginx 配置 😊
+为了很好的区分应用和对应的路由，我们建议所有子应用使用 hash 路由开发，这样能统一路由风格，增加路由的可读性，且能减少很多不必要的 nginx 配置 😊
 
 `http://10.28.184.132:8088/dash/#/list?type=dashboard`
 
@@ -76,7 +108,7 @@ footer:
 - `/#/list` - hash 路由参数为子应用自己的路由
 - `?type=dashboard` - 传参
 
-[查看更多](/docs/publish#部署)
+  [查看更多](/guide/publish#部署)
 
 ### 相关插件
 

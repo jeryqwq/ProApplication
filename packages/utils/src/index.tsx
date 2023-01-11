@@ -11,6 +11,10 @@ import { observerDomResize } from './observerDomResize'
 import useAutoResize from './useAutoResize'
 import rsa, { DEFAULT_PUBLIC_KEY, PASSWORD_PUBLIC_KEY, JWT_PUBLIC_KEY } from './rsa'
 import { matchString } from './matchString'
+import SnowFlake from './SnowFlake'
+import { encryptMsg, decryptContext } from './aes';
+
+
 /** Type */
 import type {
   ProFieldProps,
@@ -40,6 +44,7 @@ export type {
   ProFieldProps,
 };
 export {
+  SnowFlake,
   isDeepEqualReact,
   parseValueToMoment,
   genCopyable,
@@ -55,5 +60,7 @@ export {
   rsa,
   DEFAULT_PUBLIC_KEY,
   PASSWORD_PUBLIC_KEY,
-  JWT_PUBLIC_KEY
+  JWT_PUBLIC_KEY,
+  encryptMsg,
+  decryptContext
 };

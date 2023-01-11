@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react"
+import React, { useLayoutEffect } from "react"
 import audio, {PlayerProps} from './index'
 export default (audioRef: React.RefObject<HTMLDivElement | undefined>, config?: PlayerProps) => {
   useLayoutEffect(() => {

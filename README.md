@@ -1,4 +1,4 @@
-# [yourname](https://jeryqwq.github.io/build-docs/#/)
+# [yourname](http://10.28.184.132:8088/guide/#/)
 
 ## PlatForm & Tools
 
@@ -8,7 +8,7 @@
 
 ### 相关技术栈
 
-[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://reactjs.org/) [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn) [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/) [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh) [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/) [![ docs by dumi](https://img.shields.io/badge/docs-dumi-blue)](https://d.umijs.org/) [![](https://img.shields.io/badge/base-umi-orange)](https://umijs.org/)
+[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/) [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn) [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/) [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh) [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/) [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/) [![](https://img.shields.io/badge/base-umi-orange)](https://umijs.org/)
 
 ### 环境
 
@@ -21,7 +21,7 @@
 - 组件耦合严重，组件代码量大
 - 业务开发分工不明确，业务开发人员要关心非业务的代码
 - 编译慢，效率低
-- 无法对应用做增量更新
+- 无法对应用做增量编译&增量部署
 - 相关包基础依赖可能会重复打包，如： lodash,moment...
 - 管理、调试、追踪 bug 困难
 - 不同项目之间 node、node-sass、webpack 等基础依赖版本不统一，切换增加心智负担。
@@ -51,10 +51,13 @@
 
 防止后期主应用过大增加 dev 和编译负担，我们把以往的主应用下不相关的部分拆分成了独立的项目，然后使用微前端和模块联邦来对接子应用（代码共享和状态管理），这样整个应用能 hold 住未来不断扩张的业务线和人员开发，也不会出现在不同应用中组件库代码被重复打包。我们特意将组件库代码从主应用中抽离出来，每个独立的子应用共享主应用内导出的 exposes 文件夹下的模块。
 
+- [/project/dashboard]仪表板项目代码
+- [/project/visual]画布项目项目代码
 - [/project/dataModel]数据模型项目代码
 - [/project/template]子应用模版
+- [/project/dataModel]数据模型
 
-[相关子应用接入查看这里](https://jeryqwq.github.io/build-docs/#/docs/subapp)
+[相关子应用接入查看这里](http://10.28.184.132:8088/guide/#/guide/subapp)
 
 ## 命令
 
@@ -69,15 +72,51 @@
 - `npm run build-lib` # 懒加载打包(esm, cjs 格式)package 下所有库(保留文件的引用关系,可以查看对应包下面的 lib 和 es 文件夹)，能解耦主应用代码，避免重复打包
 - `npm run build-dist` # 打包生产环境下 package 下所有库(压缩，生成单文件),适用于给其他团队项目中使用，仅忽略 antd,proComponents,moment 库
 - `npm run build-selectPkg` # 手动选择打包，防止后期包太多的情况全部打包消耗过多资源和时间
-- `npm run docs` # 运行项目文档， 包含组件库文档和项目说明等
+- `npm run doc` # 运行项目文档， 包含组件库文档和项目说明等
 - `npm run test` # 跑测试用例
 
-[更多](/docs/getting-started)
+[更多](/guide/getting-started)
+
+### 全局 API
+
+已接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
+
+#### without
+
+```tsx
+import { Spin } from 'antd';
+import { useState } from 'react';
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <Spin />
+      {count}
+    </div>
+  );
+}
+```
+
+#### with
+
+相关 API 直接不需要 import 即可使用
+
+```tsx
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <Spin />
+      {count}
+    </div>
+  );
+}
+```
 
 ### 发布
 
 - `npm run release` 提供界面交互可视化自动发包
-- `npm run release:only` 手动修改版本号后发包 [查看更多](/#/docs/publish)
+- `npm run release:only` 手动修改版本号后发包 [查看更多](http://10.28.184.132:8088/docs/#/guide/publish)
 
 ### 部署
 
@@ -92,7 +131,7 @@
 - `/#/list` - hash 路由参数为子应用自己的路由
 - `?type=dashboard` - 传参
 
-[查看更多](/#/docs/publish#部署)
+[查看更多](http://10.28.184.132:8088/guide/#/guide/publish#部署)
 
 ## 相关工程插件
 

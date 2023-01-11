@@ -1,54 +1,69 @@
-import { useState, useEffect } from 'react';
+// @ts-nocheck
 import { Line, LineConfig as _LineConfig } from '@ant-design/plots';
 import React from 'react';
 interface BasicLineProps {
-    config?: _LineConfig
+  config?: _LineConfig,
+  data?: Array<{name: string, value: number}>
 }
 export const LineConfig : React.FC<_LineConfig> = () => <></>;
 
 export default (props: BasicLineProps) => {
-  const { config } = props
-  const [data, setData] = useState([]);
+  const { config, data } = props
 
-  useEffect(() => {
-    asyncFetch();
-  }, []);
+  const tempData = [
+    {
+      name: '分类一',
+      value: 27,
+      category: '1'
+    },
+    {
+      name: '分类二',
+      value: 25,
+      category: '1'
+    },
+    {
+      name: '分类三',
+      value: 18,
+      category: '1'
+    },
+    {
+      name: '分类一',
+      value: 15,
+      category: '2'
+    },
+    {
+      name: '分类二',
+      value: 10,
+      category: '2'
+    },
+    {
+      name: '分类三',
+      value: 5,
+      category: '2'
+    },
+  ];
 
-  const asyncFetch = () => {
-    fetch('https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json')
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => {
-        console.log('fetch data failed', error);
-      });
-  };
+  const renderData = data || tempData
+
   const renderConfig: _LineConfig = {
     // 图表容器
     autoFit: true,
-    // width: 200,
-    // height: 100,
     padding: 'auto',
-    // appendPadding: [16, 8, 16, 18],
     renderer: 'canvas',
-    // pixelRatio: window.devicePixelRatio,
     limitInPlot: false,
-    // locale: 'zh-CN',
     // 数据映射
-    data,
-    xField: 'Date',
-    yField: 'scales',
+    data: renderData,
+    xField: 'name',
+    yField: 'value',
     xAxis: {
-      // type: 'timeCat',
       tickCount: 5,
     },
-    // seriesField: '',
-    // meta: {},
     // 图形样式
     smooth: true,
-    // stepType: 
     connectNulls: true,
     isStack: false,
-    // color: ['#d62728', '#2ca02c', '#000000'],
+    color: 'pink',
+    seriesField: 'category',
     lineStyle: {
       // style: {
       //   fill: 'red',
@@ -64,17 +79,12 @@ export default (props: BasicLineProps) => {
       //   cursor: 'pointer'
       // }
     },
-    // point: {},
-    // state: {},
-    // 图表组件
     ...config
-
   };
-
-  // plot.on('element:click', (...args) => {
-  //   console.log(...args);
-  // });
   
-
+  // 折线图单系列、多系列时颜色配置处理
+  renderConfig.color = renderData[0][renderConfig.seriesField] !== undefined && renderConfig.seriesField !== undefined ? ['red', 'yellow'] : 'blue'
+  renderConfig.seriesField && !renderData[0][renderConfig.seriesField] && (delete renderConfig.seriesField)
+  
   return <Line {...renderConfig} />;
 }

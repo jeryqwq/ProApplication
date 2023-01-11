@@ -12,7 +12,7 @@ export const PieConfig: React.FC<_PieConfig> = () => <></>;
 
 export default (props: BasicPieProps) => {
   const {config, data} = props
-  const renderStatistic = (containerWidth, text, style) => {
+  const renderStatistic = (containerWidth: number, text: string, style: React.CSSProperties) => {
     const { width: textWidth, height: textHeight } = measureTextWidth(text, style);
     const R = containerWidth / 2; // r^2 = (w / 2)^2 + (h - offsetY)^2
 
@@ -76,7 +76,7 @@ export default (props: BasicPieProps) => {
         spacing: 0,
       },
       itemValue: {
-        formatter: (text, item) => {
+        formatter: (_text, item) => {
           const value = renderData.map(item => item.value)
           const total = value.reduce((a,b) => {return a+b}, 0)
           const items = renderData.filter((d) => d.name === item.value);
@@ -90,7 +90,7 @@ export default (props: BasicPieProps) => {
     statistic: {
       title: {
         offsetY: 30,
-        customHtml: (container, view, datum) => {
+        customHtml: (container, _view, datum) => {
           const { width, height } = container.getBoundingClientRect();
           const d = Math.sqrt(Math.pow(width / 2, 2) + Math.pow(height / 2, 2));
           const text = datum ? datum.name : '总计';
@@ -99,12 +99,13 @@ export default (props: BasicPieProps) => {
           });
         },
       },
+// @ts-ignore:next-line
       content: {
         offsetY: -30,
         style: {
           fontSize: '32px',
         },
-        customHtml: (container, view, datum, data) => {
+        customHtml: (container, _view, datum, data: { label: string; value: number }[]) => {
           const { width } = container.getBoundingClientRect();
           const text = datum ? `${datum.value}` : `${data.reduce((r, d) => r + d.value, 0)}`;
           return renderStatistic(width, text, {

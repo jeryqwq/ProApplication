@@ -45,7 +45,6 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.3",
-    "antd": ">=4.0",
-    "@ahooksjs/use-url-state": "^3.5.0"
+    "@ahooksjs/use-url-state": "3.5.1"
   }
 }

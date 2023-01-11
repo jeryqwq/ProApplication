@@ -5,17 +5,12 @@
     "build",
     "public",
     "packages",
-    "projects"
+    "projects",
+    "tests",
+    "scripts"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",
-  },
-  "paths": {
-    "@vis/utils": "/packages/utils/src/index",
-    "@vis/components": "/packages/components/src/index",
-    "@vis/charts": "/packages/charts/src/index",
-    "@vis/test": "/packages/test/src/index",
-    "@vis/common": "/packages/common/src/index",
-    "@vis/decorator": "/packages/decorator/src/index",
+    "types": ["unplugin-icons/types/react"]
   }
 }
