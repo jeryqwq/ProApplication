@@ -155,4 +155,8 @@ export default defineConfig({
   exportStatic: {},
   outputPath: isDev ? undefined : 'build-docs',
   publicPath: isDev ? undefined : '/build-docs/',
+  legacy: {
+    buildOnly: true,
+    nodeModulesTransform: false,
+  },
 });
