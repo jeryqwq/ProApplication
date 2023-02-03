@@ -1,4 +1,3 @@
-import 'antd/dist/antd.variable.less';
 import { RequestConfig } from '@umijs/max'
 import { notification } from 'antd';
 

@@ -1,8 +1,8 @@
 ---
-title: yourname - 下一代next主应用
+title: Vis-Next - 下一代next主应用
 hero:
-  title: yourname
-  description: 🏆 现代化大型工程解决方案 🚀
+  title: vis-next
+  description: 🏆 下一代态势主应用 🚀
   actions:
     - text: 🏮🏮 快速开始 →
       link: /guide
@@ -13,14 +13,14 @@ features:
     description: 基于 React18+ 的应用研发框架<a href="https://umijs.org/" target="_blank" rel="noreferrer">[Umi4.x]</a> ，支持 Vite & Webpack 模式, mfsu极速dev环境编译优化，同时提供了微前端、Hooks、高度集成dumi等一体化解决方案，让前端开发更加简单规范,带给你简单而愉悦的 Web 开发体验。
   - emoji: 🎨
     title: Ant Design生态 + 丰富自研组件
-    description: 接入 <a href="https://ant-design.gitee.io/index-cn" target="_blank" rel="noreferrer">[Ant Design]</a>, <a href="https://procomponents.ant.design/" target="_blank" rel="noreferrer">[ProComponents]</a> ，提供了更高级别的抽象支持，开箱即用。可以显著的提升制作 CRUD 页面的效率，更加专注于页面，基于以上封装了<a href="/#/components">[更上层的组件]</a>，加快研发效率。
+    description: 已适配<a href="https://ant-design.gitee.io/theme-editor-cn" target="_blank" >[antd5.x主题]</a><a href="https://ant-design.gitee.io/docs/react/customize-theme-cn#overridetoken" target="_blank" >[token]</a>配置，轻松在css|js中使用token来定制开发，base<a href="https://ant-design.gitee.io/index-cn" target="_blank" rel="noreferrer">[Ant Design]</a>, <a href="https://procomponents.ant.design/" target="_blank" rel="noreferrer">[ProComponents]</a> ，提供了更高级别的抽象支持，开箱即用。可以显著的提升制作 CRUD 页面的效率，更加专注于页面。基于以上封装了<a href="/#/components">[更上层的组件]</a>，加快研发效率。
   - emoji: 🚥
     title: pnpm & monorepos
     description: 节约磁盘空间并提升安装速度，<a href="https://pnpm.io/zh/" target="_blank" rel="noreferrer">[pnpm]</a> 比其他包管理器快 2 倍，全场景自动化脚本支持，简化开发体验 , 版本管理，change-log日志自动生成， 多包管理,只需在一个仓库中开发，编码会相当方便, 代码复用高，方便进行代码重构, 仓库体积小，模块划分清晰。
   - emoji: 💎
     title: API组件研发工具 & 极速构建
-    description: 丰富的Markdown扩展，不止于渲染组件demo，使得组件的文档不仅易于编写、管理，还好看、好用,API自动生成, 适配移动端，兼容主题系统，资产数据化能力<a href="https://d.umijs.org" target="_blank" rel="noreferrer">[dumi2.x]</a>, 最新版组件构建工具<a href="https://github.com/umijs/father/blob/master/guide/guide/index.md" target="_blank" rel="noreferrer">[father4.x]</a>,更高效、高质量地研发 NPM 包、生成构建产物、再完成发布。
-  - emoji: 📈
+    description: <a href="https://d.umijs.org" target="_blank" rel="noreferrer">[dumi2.x]</a>丰富的Markdown扩展，不止于渲染组件demo，使得组件的文档不仅易于编写、管理，还好看、好用,API自动生成, 适配移动端，兼容主题系统，资产数据化能力。最新版组件构建工具<a href="https://github.com/umijs/father/blob/master/guide/guide/index.md" target="_blank" rel="noreferrer">[father4.x]</a>,更高效、高质量地研发 NPM 包、生成构建产物、再完成发布。
+  - emoji: 💪
     title: TypeScript & AntV
     description: 使用 TypeScript 开发，组件和工具包提供完整的类型定义文件，引入类型定义(进行类型检查)和编译器,可以避免JavaScript大多数runtime错误,更可靠,易维护,更清晰, 类型就是最好的注释 & 企业级可视化解决方案<a href="https://antv.vision/zh" target="_blank" rel="noreferrer">[antv]</a>，任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。
   - emoji: 💡
@@ -35,6 +35,7 @@ features:
 ### 相关技术栈
 
 [![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) &nbsp; [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/)&nbsp; [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn)&nbsp; [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/)&nbsp; [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh)&nbsp; [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/)&nbsp; [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/)
+[![](https://img.shields.io/badge/-unocss-yellowgreen?&logo=unocss)](https://uno.antfu.me/)
 
 ### 环境
 
@@ -61,8 +62,8 @@ features:
 #### without
 
 ```tsx ｜ pure
-import { Spin } from 'antd';
 import { useState } from 'react';
+import { Spin } from 'antd';
 export function Counter() {
   const [count, setCount] = useState(0);
   return (
@@ -119,7 +120,7 @@ export function Counter() {
 - [husky](https://typicode.github.io/husky/#/): 代码提交规范工具
 - [jest](https://jestjs.io/zh-Hans/):自动化测试框架
 - [react chorme debug](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en): react 调试 & 性能分析
-- [vscode monorepo workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace): monorepo 工程 vscode 插件，一键整理工程代码
+- [vscode monorepo workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace): monorepo 工程 vscode 插件，进一步优化你的开发体验
 
 ## 🖥 浏览器兼容性
 
@@ -127,5 +128,5 @@ export function Counter() {
 - [Electron](https://www.electronjs.org/)
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
-| --- | --- | --- | --- | --- |
-| Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Edge                                                                                                                                              | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                                     |

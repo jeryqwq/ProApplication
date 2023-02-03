@@ -1,4 +1,3 @@
-import 'antd/dist/antd.variable.less';
 import { useState } from 'react';
 
 // 更多信息见文档：https://next.umijs.org/docs/api/runtime-config#getinitialstate

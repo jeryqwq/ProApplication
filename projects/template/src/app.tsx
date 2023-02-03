@@ -1,6 +1,5 @@
 import { RequestConfig } from '@umijs/max';
 import { notification } from 'antd';
-import 'antd/dist/antd.variable.less';
 
 // 更多信息见文档：https://next.umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<any> {

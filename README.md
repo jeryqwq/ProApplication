@@ -1,4 +1,4 @@
-# [yourname](http://10.28.184.132:8088/guide/#/)
+# [vis-next](http://10.28.184.132:8088/guide/#/)
 
 ## PlatForm & Tools
 
@@ -8,7 +8,7 @@
 
 ### 相关技术栈
 
-[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/) [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn) [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/) [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh) [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/) [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/) [![](https://img.shields.io/badge/base-umi-orange)](https://umijs.org/)
+[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/) [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn) [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/) [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh) [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/) [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/) [![](https://img.shields.io/badge/base-umi-orange)](https://umijs.org/) [![](https://img.shields.io/badge/-unocss-yellowgreen?&logo=unocss)](https://uno.antfu.me/)
 
 ### 环境
 
@@ -38,6 +38,30 @@
 
 针对上述问题我们引入了 Monorepo 的概念，把以往的单一组件库拆分为职责更细化的包，架构更清晰，解耦，子应用隔离，并且做了严格的 CR，CI 机制(暂无 CD)、自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上[精读《Monorepo 的优势》](https://zhuanlan.zhihu.com/p/65533186), [现代化前端应用为什么越来越离不开 Monorepo](https://juejin.cn/post/6944877410827370504)
 
+<!-- ## 特性
+
+- umi4.x:
+
+- TypeScript:
+
+- state management:
+
+- unocss:
+
+- ant5.x:
+
+- dumi4.x:
+
+- commontLint:
+
+- jest:
+
+- father-builder:
+
+- vscode integrate:
+
+- procomponents: -->
+
 ### 包划分
 
 - [@vis/utils](/components/utils) 工具库，常用的工具函数或者 hooks 等，如 transformData,uuid,timeFormat....
@@ -51,13 +75,9 @@
 
 防止后期主应用过大增加 dev 和编译负担，我们把以往的主应用下不相关的部分拆分成了独立的项目，然后使用微前端和模块联邦来对接子应用（代码共享和状态管理），这样整个应用能 hold 住未来不断扩张的业务线和人员开发，也不会出现在不同应用中组件库代码被重复打包。我们特意将组件库代码从主应用中抽离出来，每个独立的子应用共享主应用内导出的 exposes 文件夹下的模块。
 
-- [/project/dashboard]仪表板项目代码
-- [/project/visual]画布项目项目代码
-- [/project/dataModel]数据模型项目代码
 - [/project/template]子应用模版
-- [/project/dataModel]数据模型
 
-[相关子应用接入查看这里](http://10.28.184.132:8088/guide/#/guide/subapp)
+[相关子应用接入查看这里](http://10.28.184.132:8088/docs/#/guide/subapp)
 
 ## 命令
 
@@ -142,7 +162,7 @@ export function Counter() {
 - [husky](https://typicode.github.io/husky/#/) 代码提交规范工具
 - [jest](https://jestjs.io/zh-Hans/)：自动化测试框架
 - [react chorme debug](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en): react 调试 & 性能分析
-- [vscode monorepo workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace): monorepo 工程 vscode 插件，一键整理工程代码
+- [vscode monorepo workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace): monorepo 工程 vscode 插件，进一步优化你的开发体验
 
 ## 🖥 浏览器兼容性
 

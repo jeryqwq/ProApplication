@@ -1,9 +1,7 @@
 import { Workspace } from '@vis/components';
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
-const HomePage: React.FC = (props) => {
-  const location = useParams();
+const HomePage: React.FC = () => {
   return (
     <div>
       <Workspace

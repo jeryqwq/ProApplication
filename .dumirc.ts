@@ -59,13 +59,13 @@ const componentMenus = {
 };
 
 export default defineConfig({
-  title: 'yourname',
+  title: 'vis-next',
   apiParser: {},
   themeConfig: {
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
     hd: { rules: [] },
     rtl: true,
-    name: 'yourname',
+    name: 'vis-next',
     footer: `Open-source MIT Licensed | Copyright © 2023-present
     <br />
     Powered by <a href="https://github.com/jeryqwq">Chencc</a>`,
@@ -92,10 +92,6 @@ export default defineConfig({
   extraBabelPlugins: [],
   metas: [
     {
-      property: 'og:site_name',
-      content: 'VisNext',
-    },
-    {
       name: 'apple-mobile-web-app-capable',
       content: 'yes',
     },
@@ -110,40 +106,10 @@ export default defineConfig({
   ],
   alias,
   resolve: {
-    atomDirs: [
-      {
-        type: 'components',
-        dir: `/packages/test/src`,
-      },
-      {
-        type: 'components',
-        dir: `/packages/components/src`,
-      },
-      {
-        type: 'components',
-        dir: `/packages/utils/src`,
-      },
-      {
-        type: 'components',
-        dir: `/packages/common/src`,
-      },
-      {
-        type: 'components',
-        dir: `/packages/charts/src`,
-      },
-      {
-        type: 'components',
-        dir: `/packages/components/src`,
-      },
-      {
-        type: 'components',
-        dir: `/packages/decorator/src`,
-      },
-    ],
-    // atomDirs: pkgList.map((i) => ({
-    //   type: 'component',
-    //   dir: `/packages/${i}/src`,
-    // })),
+    atomDirs: pkgList.map((i) => ({
+      type: 'component',
+      dir: `/packages/${i}/src`,
+    })),
     entryFile: './config/api.tsx',
   },
   history: { type: 'hash' },
@@ -156,6 +122,12 @@ export default defineConfig({
   outputPath: isDev ? undefined : 'build-docs',
   publicPath: isDev ? undefined : '/build-docs/',
   legacy: {
+    /**
+     * https://github.com/umijs/umi/issues/8658  修复打包es5 bug # Big integer literals are not available in the configured target environment "umi"
+     * 不知道是哪个集成了babel的插件自动添加了es2015, 照理说umi新版会默认打包现代化应用（es2020），
+     * 目前打包时会在当前的配置后再加es2015，会导致异常，这里直接忽略所有node_module代码，
+     * 默认依赖已经打包好了，是dumi文档也没啥大影响
+     */
     buildOnly: true,
     nodeModulesTransform: false,
   },

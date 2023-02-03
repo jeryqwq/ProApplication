@@ -86,6 +86,7 @@ order: 1
 - package.json       * 项目的配置
 - tsconfig.json      * typescript 的配置
 - pnpm-lock.yaml     * 依赖 lock 文件
+- unocss.config.ts   * unocss配置
 ```
 
 `coverage` ， `.umi` 这几个文件夹比较特殊，`coverage` 是测试覆盖率文件，在跑完测试覆盖率后才会出现，`.umi` 是运行主应用时的一些临时文件，在执行 `npm run dev` 时生成
@@ -169,8 +170,7 @@ import { ConfigProvider } from 'antd';
 import { useContext } from 'react';
 import './index.less';
 export default () => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('vis-world-cloud'); // antd-vis-{packageName}
+  const prefixCls = 'vis-world-cloud'; // vis-{packageName}
   return <div className={prefixCls}>Test Component</div>;
 };
 ```
@@ -179,12 +179,9 @@ export default () => {
 
 ```less
 // ./index.less
-@import (reference) '~antd/es/style/themes/index.less';
-@vis-worldCloud-prefix-cls: ~'@{ant-prefix}-vis-world-cloud';
+@vis-worldCloud-prefix-cls: ~'vis-world-cloud';
 
 .@{vis-worldCloud-prefix-cls} {
-  font-size: @font-size-base;
-  background-color: @component-background;
   border: solid 1px greenyellow;
 }
 ```

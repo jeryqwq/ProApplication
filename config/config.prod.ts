@@ -39,14 +39,13 @@ export default defineConfig({
     react: 'React',
     'react-dom/client': 'ReactDOM',
     lodash: '_',
-    moment: 'moment',
   },
+
   publicPath: '/main/',
   headScripts: [
     '/main/cdn/react.production.min.js',
     '/main/cdn/react-dom.production.min.js',
     '/main/cdn/lodash.min.js',
-    '/main/cdn/moment.min.js',
   ],
   mfsu: {
     esbuild: true,

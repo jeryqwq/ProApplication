@@ -1,0 +1,53 @@
+{
+  "folders": [
+	{
+		"name": "✨ vis-react",
+		"path": ".."
+	},
+	{
+		"name": "📈@vis/charts",
+		"path": "../packages/charts"
+	},
+	{
+		"name": "💡@vis/common",
+		"path": "../packages/common"
+	},
+	{
+		"name": "🤔@vis/components",
+		"path": "../packages/components"
+	},
+	{
+		"name": "💄@vis/decorator",
+		"path": "../packages/decorator"
+	},
+	{
+		"name": "🎯@vis/test",
+		"path": "../packages/test"
+	},
+	{
+		"name": "🤸‍♀️@vis/utils",
+		"path": "../packages/utils"
+	},
+	{
+		"name": "🌕@vis/dashboard",
+		"path": "../projects/dashboard"
+	},
+	{
+		"name": "🌗@vis/data-model",
+		"path": "../projects/dataModel"
+	},
+	{
+		"name": "🌘@vis/template",
+		"path": "../projects/template"
+	},
+	{
+		"name": "🌑@vis/form",
+		"path": "../projects/visForm"
+	},
+	{
+		"name": "🌒@vis/visual",
+		"path": "../projects/visVisual"
+	}
+],
+  "settings": {}
+}

@@ -1,8 +1,9 @@
 import { VisHeader } from '@vis/components';
+import React from 'react';
 
 function Space1() {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', height: 2000 }}>
       <VisHeader
         style={{ width: 200, marginRight: '10px' }}
         tabs={[
@@ -20,7 +21,7 @@ function Space1() {
             key: '1',
             content: (
               <div style={{ height: 400, background: 'white' }}>
-                <h1>Table View</h1>
+                <div>Table View</div>
               </div>
             ),
           },
@@ -29,12 +30,12 @@ function Space1() {
             key: '2',
             content: (
               <div style={{ height: 400, background: 'white' }}>
-                <h1>SQL View</h1>
+                <div>SQL View</div>
               </div>
             ),
           },
         ]}
-        tabBarExtraContent={<div>🫱</div>}
+        tabBarExtraContent={<span>🫱</span>}
       >
         {(item) => {
           return <div>{item?.content}</div>;

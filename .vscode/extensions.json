@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "esbenp.prettier-vscode",
-    "folke.vscode-monorepo-workspace"
+    "folke.vscode-monorepo-workspace",
+    "antfu.unocss"
   ]
 }
