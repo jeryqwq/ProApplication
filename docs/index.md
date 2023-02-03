@@ -1,7 +1,7 @@
 ---
-title: Vis-Next - 下一代next主应用
+title: yourname - 下一代next主应用
 hero:
-  title: vis-next
+  title: yourname
   description: 🏆 下一代态势主应用 🚀
   actions:
     - text: 🏮🏮 快速开始 →
@@ -34,8 +34,7 @@ features:
 
 ### 相关技术栈
 
-[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) &nbsp; [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/)&nbsp; [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn)&nbsp; [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/)&nbsp; [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh)&nbsp; [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/)&nbsp; [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/)
-[![](https://img.shields.io/badge/-unocss-yellowgreen?&logo=unocss)](https://uno.antfu.me/)
+[![](https://img.shields.io/badge/-TypeScript-2496ED?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/) &nbsp; [![](https://img.shields.io/badge/-React-45B8D8?style=flat-square&logo=react&logoColor=ffffff)](https://beta.reactjs.org/)&nbsp; [![](https://img.shields.io/badge/-antd-blue?&logo=ant-design)](https://ant-design.gitee.io/index-cn)&nbsp; [![](https://img.shields.io/badge/-proComponent-orange?logo=ant-design)](https://procomponents.ant.design/)&nbsp; [![](https://img.shields.io/badge/-@antd/charts-critical?logo=graphql)](https://antv.vision/zh)&nbsp; [![](https://img.shields.io/badge/-jest-green?logo=jest)](https://jestjs.io/zh-Hans/)&nbsp; [![ docs by dumi](https://img.shields.io/badge/guide-dumi-blue)](https://d.umijs.org/) [![](https://img.shields.io/badge/-unocss-yellowgreen?&logo=unocss)](https://uno.antfu.me/)
 
 ### 环境
 
@@ -62,8 +61,8 @@ features:
 #### without
 
 ```tsx ｜ pure
-import { useState } from 'react';
 import { Spin } from 'antd';
+import { useState } from 'react';
 export function Counter() {
   const [count, setCount] = useState(0);
   return (
@@ -128,5 +127,5 @@ export function Counter() {
 - [Electron](https://www.electronjs.org/)
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                              | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                                     |
+| --- | --- | --- | --- | --- |
+| Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |

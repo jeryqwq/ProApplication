@@ -59,13 +59,13 @@ const componentMenus = {
 };
 
 export default defineConfig({
-  title: 'vis-next',
+  title: 'yourname',
   apiParser: {},
   themeConfig: {
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
     hd: { rules: [] },
     rtl: true,
-    name: 'vis-next',
+    name: 'yourname',
     footer: `Open-source MIT Licensed | Copyright © 2023-present
     <br />
     Powered by <a href="https://github.com/jeryqwq">Chencc</a>`,
