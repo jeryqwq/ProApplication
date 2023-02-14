@@ -16,7 +16,6 @@ nav:
 业务中进通过配置 api 前缀和字段的配置即可产出 CRUD 业务，下面是一个 demo，由于没有业务接口，所以我们这里自定义 request 去模拟下数据返回
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 export default () => {
   return (
@@ -66,7 +65,6 @@ export default () => {
 使用`editColumns` 和`addColumns` 对编辑或者新增时进行其它表单配置，优选使用对应的 column， 否则使用全局 columns 渲染，用来在一些业务场景中，某些字段需要一些单独的配置。
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 export default () => {
   return (
@@ -140,7 +138,6 @@ export default () => {
 可用 `columnActions`在表格操作处增加其它操作, 渲染函数会传递当前项
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 import { Button } from 'antd';
 export default () => {
@@ -203,7 +200,6 @@ export default () => {
 可用`modalFooterAction`在新增或者编辑时在对话框下方的自定义添加其它按钮， 渲染函数传递获取当前值的方法，用来做其它操作
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 export default () => {
   return (
@@ -266,7 +262,6 @@ export default () => {
 新增时给名称一个默认值
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 export default () => {
   return (
@@ -319,10 +314,10 @@ export default () => {
 可以使用 formRef 来获取当前正在进行编辑或者新增状态的属性值,或者触发校验属性
 
 ```tsx
-import React, { useRef } from 'react';
-import { VisCRUD } from '@vis/components';
 import { ProFormInstance } from '@ant-design/pro-components';
+import { VisCRUD } from '@vis/components';
 import { Button } from 'antd';
+import { useRef } from 'react';
 export default () => {
   const formRef = useRef<ProFormInstance>();
   return (
@@ -392,7 +387,6 @@ export default () => {
 可用`editHandle` `addHandle`来处理非常用逻辑意外的操作，如页面跳转，打开其它对话框等。
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 export default () => {
   return (
@@ -449,7 +443,6 @@ export default () => {
 使用`toolBars`传入其它 ReactNode 节点进行渲染并隐藏自带的新增按钮
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 import { Button } from 'antd';
 export default () => {
@@ -500,7 +493,6 @@ export default () => {
 ## 自定义列表项
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
 export default () => {
   return (
@@ -567,9 +559,8 @@ export default () => {
 ## 表格批量操作
 
 ```tsx
-import React from 'react';
 import { VisCRUD } from '@vis/components';
-import { Table, Space, Button } from 'antd';
+import { Space, Table } from 'antd';
 export default () => {
   return (
     <div>
