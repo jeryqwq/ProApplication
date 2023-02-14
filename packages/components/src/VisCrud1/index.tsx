@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { PlusOutlined } from '@ant-design/icons';
 import {
   ActionType,
   BetaSchemaForm,
@@ -10,9 +11,8 @@ import {
   ProTable,
   ProTableProps,
 } from '@ant-design/pro-components';
-import React, { createRef, useCallback, useRef, useState } from 'react';
-import { Button, Form, message, Modal } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { Button, message, Modal } from 'antd';
+import React, { useCallback, useRef, useState } from 'react';
 
 declare type VisPageProps<T> = {
   /** 新增， 编辑， 查询，表格列表, 默认表格使用该配置 */
