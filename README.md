@@ -1,4 +1,4 @@
-# [yourname](http://10.28.184.132:8088/guide/#/)
+# [yourname](https://jeryqwq.github.io/build-docs/#/)
 
 ## PlatForm & Tools
 
@@ -38,29 +38,47 @@
 
 针对上述问题我们引入了 Monorepo 的概念，把以往的单一组件库拆分为职责更细化的包，架构更清晰，解耦，子应用隔离，并且做了严格的 CR，CI 机制(暂无 CD)、自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上[精读《Monorepo 的优势》](https://zhuanlan.zhihu.com/p/65533186), [现代化前端应用为什么越来越离不开 Monorepo](https://juejin.cn/post/6944877410827370504)
 
-<!-- ## 特性
+## 特性
 
-- umi4.x:
+- umi4.x: [快速构建 React 应用，react(V18.2),router(V6),集成 auto import, 微前端等插件。](https://umijs.org/)
 
-- TypeScript:
+- TypeScript: 包代码提供强类型支持
 
-- state management:
+- state management: Umi Model & Valtio
 
-- unocss:
+- unocss: [即使按需原子化 CSS 编译](https://uno.antfu.me/)
 
-- ant5.x:
+- ant5.x: [快速研发企业级中后台产品, 开箱即用的高质量 React 组件](https://ant-design.gitee.io/index-cn)
 
-- dumi4.x:
+- theme ｜ layout: 完全兼容新版 antd5 特性，支持自定义配置主题，主题 token 接入 unocss 和 css，less 变量, keep-alive 等。
 
-- commontLint:
+- dumi4.x: [为组件开发场景而生的静态站点框架](https://d.umijs.org/)
 
-- jest:
+- father: [帮助开发者更高效、高质量地研发 NPM 包、生成构建产物、再完成发布。](https://github.com/umijs/father)
 
-- father-builder:
+- commontLint: [让你的 commits 更有意义](https://typicode.github.io/husky/#/)
 
-- vscode integrate:
+- jest: [优雅、简洁的 JavaScript 测试框架](https://jestjs.io/zh-Hans/)
 
-- procomponents: -->
+- proComponents: [页面级组件让中后台开发更简单](https://procomponents.ant.design/)
+
+- CI / CD: 一整套发布操作流自动化流程， 打包构建 =>跑测试用例 => 选择发包（多个）=> 选择升级的主版本包 => 打版本 tag => 生成日志 change-log => 写入到 dumi 文档 => 发布 npm
+
+- search: 支持全文内容动态拼音检索，纠错检索等。
+
+- monorepos: 包和应用划分清晰，跨应用复用代码，按需安装，支持纯净模式，仅安装主应用和相关包依赖
+
+- auto-import: 接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
+
+- dev | build: 优化 dev & build 配置，无需担心打包相关问题和 dev 环境的研发体验。
+
+- vscode integrate: [适配研发插件 monorepo-workspace，快速铺平应用，优化 commit 显示，加速研发效率](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace)
+
+- vscode cofig：针对该项目特有的编辑器的配置优化，如多文件折叠，autosave...
+
+- pwa: 支持离线访问，独立安装，缓存机制等[wrokbox](https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/)功能，增加首屏的打开速度。
+
+- final: 一直都在持续更新中,只为更快更好的研发体验...
 
 ### 包划分
 
@@ -68,14 +86,18 @@
 - [@vis/test](/components/test) 这里你可以做任意操作，如测试 CI 自动化脚本，功能相关的东西，总之就是随便玩
 - [@vis/charts](/components/charts) 基于[antv](https://antv.vision/zh)下大屏画布或者仪表板图表库二次封装后的组件，如：条形进度图，词云图，饼图等...
 - [@vis/components](/components/components) 存放功能性组件，更偏向系统功能，如右键菜单，拖拽改变布局宽高...
-- [@vis/common](/components/common) 其他相关且通用性强的东西
+- [@vis/common](/components/common) 业务相关通用组件， 如 二次封装，request 拦截等...
 - [@vis/decorator](/components/common) 装饰器，包含 svg 渲染的所有动画和装饰，相比图片或者动图，可随意放大缩小，且轻量级。
 
 ### 子应用
 
 防止后期主应用过大增加 dev 和编译负担，我们把以往的主应用下不相关的部分拆分成了独立的项目，然后使用微前端和模块联邦来对接子应用（代码共享和状态管理），这样整个应用能 hold 住未来不断扩张的业务线和人员开发，也不会出现在不同应用中组件库代码被重复打包。我们特意将组件库代码从主应用中抽离出来，每个独立的子应用共享主应用内导出的 exposes 文件夹下的模块。
 
+- [/project/dashboard]仪表板项目代码
+- [/project/visual]画布项目项目代码
+- [/project/dataModel]数据模型项目代码
 - [/project/template]子应用模版
+- [/project/dataModel]数据模型
 
 [相关子应用接入查看这里](http://10.28.184.132:8088/docs/#/guide/subapp)
 
@@ -85,53 +107,18 @@
 
 我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在 monorepo 架构之上，pnpm 能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比 yarn 和 npm，pnpm 能节约磁盘空间并提升安装速度，切避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过 pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和大部分主流开源项目抛弃 npm,yarn，开始接入 pnpm。
 
+- `npm pure-install` 纯净模式，仅安装主应用和 packages 的依赖， 忽略所有子应用依赖
 - `pnpm i` 安装
 - `npm run dev` # 运行主项目
 - `npm run build` # 打包主项目
 - `npm run dev-project` # 运行项目下的子应用(visual, dashboard, dataModel, ....)
-- `npm run build-lib` # 懒加载打包(esm, cjs 格式)package 下所有库(保留文件的引用关系,可以查看对应包下面的 lib 和 es 文件夹)，能解耦主应用代码，避免重复打包
-- `npm run build-dist` # 打包生产环境下 package 下所有库(压缩，生成单文件),适用于给其他团队项目中使用，仅忽略 antd,proComponents,moment 库
+- `npm run build-lib` # 懒加载打包(esm 格式)package 下所有库(保留文件的引用关系)，能解耦主应用代码，避免重复打包
+- `npm run build-dist` # 打包生产环境下 package 下所有库(压缩，生成单文件和 css),适用于给其他团队项目中使用，仅忽略 antd,proComponents,moment 库
 - `npm run build-selectPkg` # 手动选择打包，防止后期包太多的情况全部打包消耗过多资源和时间
 - `npm run doc` # 运行项目文档， 包含组件库文档和项目说明等
 - `npm run test` # 跑测试用例
 
 [更多](/guide/getting-started)
-
-### 全局 API
-
-已接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
-
-#### without
-
-```tsx
-import { Spin } from 'antd';
-import { useState } from 'react';
-export function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <Spin />
-      {count}
-    </div>
-  );
-}
-```
-
-#### with
-
-相关 API 直接不需要 import 即可使用
-
-```tsx
-export function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <Spin />
-      {count}
-    </div>
-  );
-}
-```
 
 ### 发布
 
@@ -156,9 +143,9 @@ export function Counter() {
 ## 相关工程插件
 
 - [changeSets](https://github.com/changesets/changesets) :发包工具
-- [dumi](https://d.umijs.org/zh-CN):文档工具
+<!-- - [dumi](https://d.umijs.org/zh-CN):文档工具
 - [father-builder](https://github.com/umijs/father): 库打包工具
-- [testing-library](https://testing-library.com/): react 测试库
+- [testing-library](https://testing-library.com/): react 测试库 -->
 - [husky](https://typicode.github.io/husky/#/) 代码提交规范工具
 - [jest](https://jestjs.io/zh-Hans/)：自动化测试框架
 - [react chorme debug](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en): react 调试 & 性能分析
