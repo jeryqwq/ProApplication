@@ -1,8 +1,8 @@
 // @ts-nocheck
 import chalk from 'chalk';
-import { defineConfig } from 'dumi';
 import { readdirSync } from 'fs';
-import { join } from 'path';
+import path, { join } from 'path';
+import { defineConfig } from 'dumi';
 const isDev = process.env.NODE_ENV === 'development';
 
 const headPkgList = [];
@@ -21,55 +21,35 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 // const isProduction = process.env.NODE_ENV === 'production';
 
-const chartMenus = {
-  title: '图表',
-  children: [
-    'charts',
-    ...readdirSync(join(__dirname, '/packages/charts/src'))
-      .filter((pkg) => pkg.charAt(0) !== '.' && pkg.split('.').length <= 1)
-      .map((i) => {
-        const _title = i.replace(i.charAt(0), i.charAt(0).toLowerCase());
-        const link = `/components/${_title
-          .replace(/([A-Z])/g, '-$1')
-          .toLowerCase()}`;
-        return {
-          title: i,
-          link,
-        };
-      }),
-  ],
-};
-const componentMenus = {
-  title: '其他组件',
-  children: [
-    'components',
-    ...readdirSync(join(__dirname, '/packages/components/src'))
-      .filter((pkg) => pkg.charAt(0) !== '.' && pkg.split('.').length <= 1)
-      .map((i) => {
-        const _title = i.replace(i.charAt(0), i.charAt(0).toLowerCase());
-        const link = `/components/${_title
-          .replace(/([A-Z])/g, '-$1')
-          .toLowerCase()}`;
-        return {
-          title: i,
-          link,
-        };
-      }),
-  ],
-};
+function loadMenu(pkgName: string, alias: string) {
+  return {
+    title: alias,
+    children: [
+      pkgName,
+      ...readdirSync(join(__dirname, `/packages/${pkgName}/src`))
+        .filter((pkg) => pkg.charAt(0) !== '.' && pkg.split('.').length <= 1)
+        .map((i) => {
+          const _title = i.replace(i.charAt(0), i.charAt(0).toLowerCase());
+          const link = `/components/${_title
+            .replace(/([A-Z])/g, '-$1')
+            .toLowerCase()}`;
+          return {
+            title: i,
+            link,
+          };
+        }),
+    ],
+  };
+}
 
 export default defineConfig({
   title: 'yourname',
   apiParser: {},
-  autoAlias: false,
   themeConfig: {
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
     hd: { rules: [] },
     rtl: true,
     name: 'yourname',
-    socialLinks: {
-      github: 'https://github.com/jeryqwq/ProApplication',
-    },
     footer: `Open-source MIT Licensed | Copyright © 2023-present
     <br />
     Powered by <a href="https://github.com/jeryqwq">Chencc</a>`,
@@ -88,8 +68,9 @@ export default defineConfig({
             { title: '装饰器 & 动画', link: '/components/decorator' },
           ],
         },
-        componentMenus,
-        chartMenus,
+        loadMenu('charts', '图表组件'),
+        loadMenu('common', '业务组件'),
+        loadMenu('components', '功能组件'),
       ],
     },
   },
@@ -117,10 +98,7 @@ export default defineConfig({
     entryFile: './config/api.tsx',
   },
   history: { type: 'hash' },
-  theme: {
-    '@s-site-menu-width': '258px',
-    '@root-entry-name': 'variable',
-  },
+  theme: {},
   ignoreMomentLocale: true,
   exportStatic: {},
   outputPath: isDev ? undefined : 'build-docs',

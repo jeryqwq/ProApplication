@@ -1,4 +1,4 @@
-import { ProConfigProvider } from '@ant-design/pro-components';
+import { ProConfigProvider, SettingDrawer } from '@ant-design/pro-components';
 import { history, matchPath, useModel, useOutlet } from '@umijs/max';
 import { Tabs, theme } from 'antd';
 import routes from './../../../config/routes';
@@ -79,22 +79,7 @@ function Layouts() {
                 }}
               >
                 <ContentSearch />
-                <SettingDrawer
-                  hideCopyButton={false}
-                  enableDarkTheme
-                  settings={settings}
-                  onSettingChange={(changeSetting) => {
-                    changeSetting.colorPrimary &&
-                      document
-                        .querySelector('html')
-                        ?.style.setProperty(
-                          '--colorPrimary',
-                          changeSetting.colorPrimary,
-                        );
-                    setSetting(changeSetting);
-                  }}
-                  disableUrlParams
-                />
+
                 <AvatarDropDown />
               </div>
             );
@@ -133,6 +118,21 @@ function Layouts() {
               }
             }}
             items={memoHistory as any}
+          />
+          <SettingDrawer
+            hideCopyButton={false}
+            enableDarkTheme
+            settings={settings}
+            onSettingChange={(changeSetting) => {
+              changeSetting.colorPrimary &&
+                document
+                  .querySelector('html')
+                  ?.style.setProperty(
+                    '--colorPrimary',
+                    changeSetting.colorPrimary,
+                  );
+              setSetting(changeSetting);
+            }}
           />
         </ProLayout>
       </ConfigProvider>
