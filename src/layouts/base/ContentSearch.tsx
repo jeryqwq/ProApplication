@@ -1,12 +1,12 @@
 import { useDebounceFn } from '@ant-design/pro-components';
+import { history } from '@umijs/max';
+import styles from './index.module.less';
 import {
   HitType,
   renderSearchKeywordNode,
   RoutersType,
   searchRouterInfo,
 } from './layoutHelper';
-import styles from './index.module.less';
-import { history } from '@umijs/max';
 export default () => {
   const [isSearch, setIsearch] = useState<boolean>(false);
   const selectRef = useRef<{ focus?: () => void; blur?: () => void }>({});
@@ -24,7 +24,7 @@ export default () => {
       className={`hover:bg-colorBgTextHover overflow-hidden items-center flex h-32px  p-4px border-rd-5px transition-all-500
         ${isSearch ? 'bg-colorBgTextHover' : ''}
       `}
-      style={{ width: isSearch ? 250 : 28 }}
+      style={{ width: isSearch ? 250 : 30 }}
     >
       <SearchOutlined
         onClick={(e) => {
