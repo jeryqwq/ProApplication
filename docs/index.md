@@ -1,7 +1,7 @@
 ---
 title: yourname - 快速构建现代化monorepo应用
 hero:
-  title: ProApplication
+  title: Pro-App
   description: 🏆 快速构建现代化monorepo应用 🚀
   actions:
     - text: 🏮🏮 快速开始 →
@@ -27,6 +27,8 @@ features:
     title: CI集成 + 增量更新
     description: 集成发版工具<a href="https://github.com/changesets/changesets" target="_blank" rel="noreferrer">[changeset]</a>，自动打tag，自动生成项目更新日志，校验<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/" target="_blank" rel="noreferrer">[commit规范]</a>，让项目管理变得轻松自如，搭配自动化测试工具，代码更新出现问题时能快速定位bug并修复，基于微前端下，支持各大子应用<a href="/#/guide/publish#部署">增量更新部署</a>，做到改哪更新哪，进一步优化编译效率。
 ---
+
+[主应用](https://jeryqwq.github.io/main/#/home) [子应用 demo](https://jeryqwq.github.io/template/) [在线文档](https://jeryqwq.github.io/build-docs#/)
 
 ### 我们推荐
 

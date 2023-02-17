@@ -22,7 +22,7 @@ title: Condition 条件筛选
 
 ```tsx
 import { Condition } from '@vis/components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 export default () => {
   const [val, setVal] = useState({
     connect: 'OR',
@@ -55,7 +55,7 @@ export default () => {
 
 ```tsx
 import { Condition } from '@vis/components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 export default () => {
   const [val, setVal] = useState({
     connect: 'OR',
@@ -86,7 +86,7 @@ export default () => {
 
 ```tsx
 import { Condition } from '@vis/components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 export default () => {
   const [val, setVal] = useState({
     children: [{ mycolumn: '0-1-1', myoperator: 'equals', label: '男' }],
@@ -119,8 +119,8 @@ export default () => {
 
 ```tsx
 import { Condition } from '@vis/components';
-import React, { useState, useRef } from 'react';
 import { Button } from 'antd';
+import { useRef, useState } from 'react';
 export default () => {
   const condRef = useRef({});
   const [val, setVal] = useState({
@@ -190,10 +190,8 @@ export default () => {
 
 ```tsx
 import { Condition } from '@vis/components';
-import React, { useState, useRef } from 'react';
-import { Button } from 'antd';
-import type { SelectProps, RadioChangeEvent } from 'antd';
-import { Radio, Select, Tag } from 'antd';
+import { Button, Select, Tag } from 'antd';
+import { useRef, useState } from 'react';
 
 const options: SelectProps['options'] = [];
 for (let i = 10; i < 36; i++) {
@@ -202,6 +200,7 @@ for (let i = 10; i < 36; i++) {
     label: i.toString(36) + i,
   });
 }
+
 export default () => {
   const condRef = useRef({});
   const [val, setVal] = useState({
@@ -301,7 +300,7 @@ export default () => {
 
 ```tsx
 import { Condition } from '@vis/components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 export default () => {
   const [val, setVal] = useState({
     connect: 'OR',

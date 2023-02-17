@@ -61,11 +61,15 @@ const componentMenus = {
 export default defineConfig({
   title: 'yourname',
   apiParser: {},
+  autoAlias: false,
   themeConfig: {
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
     hd: { rules: [] },
     rtl: true,
     name: 'yourname',
+    socialLinks: {
+      github: 'https://github.com/jeryqwq/ProApplication',
+    },
     footer: `Open-source MIT Licensed | Copyright © 2023-present
     <br />
     Powered by <a href="https://github.com/jeryqwq">Chencc</a>`,
