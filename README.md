@@ -1,5 +1,7 @@
 # [yourname](https://jeryqwq.github.io/build-docs/#/)
 
+[主应用](https://jeryqwq.github.io/main/#/home) [子应用demo](https://jeryqwq.github.io/template/) [在线文档](https://jeryqwq.github.io/build-docs#/)
+
 ## PlatForm & Tools
 
 ### 我们推荐
@@ -38,7 +40,7 @@
 
 针对上述问题我们引入了 Monorepo 的概念，把以往的单一组件库拆分为职责更细化的包，架构更清晰，解耦，子应用隔离，并且做了严格的 CR，CI 机制(暂无 CD)、自动化构建、测试流水线、代码问题校验，工程化的最终目的是让业务开发可以 100% 聚焦在业务逻辑上[精读《Monorepo 的优势》](https://zhuanlan.zhihu.com/p/65533186), [现代化前端应用为什么越来越离不开 Monorepo](https://juejin.cn/post/6944877410827370504)
 
-## 特性
+### 特性
 
 - umi4.x: [快速构建 React 应用，react(V18.2),router(V6),集成 auto import, 微前端等插件。](https://umijs.org/)
 
