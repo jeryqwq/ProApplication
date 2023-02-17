@@ -1,5 +1,5 @@
 {
-  "name": "vis-react",
+  "name": "yourname",
   "version": "0.1.0",
   "private": true,
   "description": "",
@@ -23,6 +23,7 @@
     "format": "prettier --cache --write src/*",
     "preinstall": "node ./scripts/preinstall.js && max setup",
     "prepare": "husky install ",
+    "pure-install": "node ./scripts/pureInstall.js",
     "release": "pnpm build-lib && pnpm build-dist &&  npm test &&  pnpm changeset && pnpm changeset version && node ./scripts/createRelease.js && npm run release:only && build-doc",
     "release:only": "node ./scripts/checkDeps && node ./scripts/preDeploy && pnpm changeset publish --registry=http://10.28.184.132:4837/",
     "test": "node ./scripts/checkDeps && jest",
@@ -48,7 +49,9 @@
     "@types/react-dom": ">=18.0.9",
     "antd": "5.1.4",
     "react": ">=18.2.0",
-    "react-dom": ">=18.2.0"
+    "react-dom": ">=18.2.0",
+    "react-router": "6.8.0",
+    "react-router-dom": "6.8.0"
   },
   "dependencies": {
     "@ant-design/plots": "^1.0.9",
@@ -67,6 +70,7 @@
     "dayjs": "1.11.7",
     "jsencrypt": "^3.2.1",
     "lodash": "^4.17.21",
+    "pinyin": "3.0.0-alpha.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "unocss": "^0.48.4"

@@ -1,5 +1,30 @@
-@vis-progressLine-prefix-cls: ~'vis-progress-line';
+@vis-progressLine-prefix-cls: ~'vis-progress-line-';
 
-.@{vis-progressLine-prefix-cls} {
-  border: solid 1px red;
+.@{vis-progressLine-prefix-cls}progress-box {
+  width: 100%;
+  padding-left: 0px;
+  position: relative;
+  list-style: none;
+  .@{vis-progressLine-prefix-cls}progress {
+    text-align: left;
+    margin-top: 5px;
+  }
+  .@{vis-progressLine-prefix-cls}line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .@{vis-progressLine-prefix-cls}number {
+    display: inline-block;
+  }
+  .@{vis-progressLine-prefix-cls}img-province {
+    width: 40px;
+    height: 28px;
+    // background: url("/images/smartPortal/progress/local-bg.png");
+    font-size: 13px;
+    line-height: 30px;
+    color: #ffffff;
+    padding-left: 8px;
+    margin-right: 11px;
+  }
 }

@@ -1,13 +1,13 @@
-﻿import type { Moment } from 'moment';
-import moment from 'moment';
+﻿import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
-type FormatType = ((moment: Moment) => string) | string;
+type FormatType = ((dayjs: Dayjs) => string) | string;
 
 const formatString = (endText: any, format: FormatType) => {
   if (typeof format === 'function') {
-    return format(moment(endText));
+    return format(dayjs(endText));
   }
-  return moment(endText).format(format);
+  return dayjs(endText).format(format);
 };
 
 /**
@@ -15,7 +15,10 @@ const formatString = (endText: any, format: FormatType) => {
  *
  * @param value
  */
-const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]) => {
+const dateArrayFormatter = (
+  value: any[],
+  format: FormatType | FormatType[],
+) => {
   const [startText, endText] = Array.isArray(value) ? value : [];
 
   let formatFirst: FormatType;
@@ -30,10 +33,14 @@ const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]) => 
   }
 
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
-  const parsedStartText: string = startText ? formatString(startText, formatFirst) : '';
+  const parsedStartText: string = startText
+    ? formatString(startText, formatFirst)
+    : '';
   const parsedEndText: string = endText ? formatString(endText, formatEnd) : '';
   const valueStr: string =
-    parsedStartText && parsedEndText ? `${parsedStartText} ~ ${parsedEndText}` : '';
+    parsedStartText && parsedEndText
+      ? `${parsedStartText} ~ ${parsedEndText}`
+      : '';
 
   return valueStr;
 };

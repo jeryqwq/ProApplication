@@ -1,16 +1,18 @@
-import moment from 'moment';
+import dayjs, { Dayjs } from 'dayjs';
 
-type DateValue = moment.Moment | moment.Moment[] | string | string[] | number | number[];
+type DateValue = Dayjs | Dayjs[] | string | string[] | number | number[];
 
 const parseValueToMoment = (
   value: DateValue,
   formatter?: string,
-): moment.Moment | moment.Moment[] | null | undefined => {
+): Dayjs | Dayjs[] | null | undefined => {
   if (Array.isArray(value)) {
-    return (value as any[]).map((v) => parseValueToMoment(v, formatter) as moment.Moment);
+    return (value as any[]).map(
+      (v) => parseValueToMoment(v, formatter) as Dayjs,
+    );
   }
-  if (typeof value === 'number') return moment(value);
-  return moment(value, formatter);
+  if (typeof value === 'number') return dayjs(value);
+  return dayjs(value, formatter);
 };
 
 export default parseValueToMoment;

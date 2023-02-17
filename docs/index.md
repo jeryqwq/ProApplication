@@ -1,8 +1,8 @@
 ---
-title: yourname - 下一代next主应用
+title: yourname - 快速构建现代化monorepo应用
 hero:
-  title: yourname
-  description: 🏆 下一代态势主应用 🚀
+  title: ProApplication
+  description: 🏆 快速构建现代化monorepo应用 🚀
   actions:
     - text: 🏮🏮 快速开始 →
       link: /guide
@@ -25,7 +25,7 @@ features:
     description: 使用 TypeScript 开发，组件和工具包提供完整的类型定义文件，引入类型定义(进行类型检查)和编译器,可以避免JavaScript大多数runtime错误,更可靠,易维护,更清晰, 类型就是最好的注释 & 企业级可视化解决方案<a href="https://antv.vision/zh" target="_blank" rel="noreferrer">[antv]</a>，任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。
   - emoji: 💡
     title: CI集成 + 增量更新
-    description: 集成发版工具<a href="https://github.com/changesets/changesets" target="_blank" rel="noreferrer">[changeset]</a>，自动打tag，校验<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/" target="_blank" rel="noreferrer">[commit规范]</a>，让版本管理变得轻松自如，搭配自动化测试工具，代码更新出现问题时能快速定位bug并修复，基于微前端下，支持各大子应用<a href="/#/guide/publish#部署">增量更新部署</a>，做到改哪更新哪，进一步优化编译效率。
+    description: 集成发版工具<a href="https://github.com/changesets/changesets" target="_blank" rel="noreferrer">[changeset]</a>，自动打tag，自动生成项目更新日志，校验<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/" target="_blank" rel="noreferrer">[commit规范]</a>，让项目管理变得轻松自如，搭配自动化测试工具，代码更新出现问题时能快速定位bug并修复，基于微前端下，支持各大子应用<a href="/#/guide/publish#部署">增量更新部署</a>，做到改哪更新哪，进一步优化编译效率。
 ---
 
 ### 我们推荐
@@ -42,53 +42,62 @@ features:
 
 ### 运行
 
-我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在 monorepo 架构之上，pnpm 能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比 yarn 和 npm，pnpm 能节约磁盘空间并提升安装速度，切避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过 pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和开源项目抛弃 npm,yarn，开始接入 pnpm。[快速开始](/guide/getting-started)
+我们所有的包管理都强制使用[pnpm](https://pnpm.io/zh/motivation)，在 monorepo 架构之上，pnpm 能极大发挥他的作用(设计初期就很好的考虑了当前复杂项目的痛点)，相比 yarn 和 npm，pnpm 能节约磁盘空间并提升安装速度，且避免了关于深度嵌套包的一些意外情况，如果你还没有接触了解过 pnpm,可以看看[相关文章](https://zhuanlan.zhihu.com/p/377593512), 而且当前已有众多[前端团队](https://pnpm.io/zh/users)和开源项目抛弃 npm,yarn，开始接入 pnpm。[快速开始](/guide/getting-started)
 
-- `pnpm i` 安装
+- `npm pure-install` (建议使用)纯净模式，仅安装主应用和 packages 的依赖， 忽略所有子应用依赖
+- `pnpm i` 安装所有依赖，包括 packages 和 projects
 - `npm run dev` # 运行主项目
 - `npm run build` # 打包主项目
 - `npm run dev-project` # 运行项目下的子应用(visual, dashboard, dataModel, ....)
-- `npm run build-lib` # 懒加载打包(esm, cjs 格式)package 下所有库(保留文件的引用关系,可以查看对应包下面的 lib 和 es 文件夹)，能解耦主应用代码，避免重复打包
+- `npm run build-lib` # 懒加载打包(esm 格式)package 下所有库(保留文件的引用关系)，能解耦主应用代码，避免重复打包
 - `npm run build-dist` # 打包生产环境下 package 下所有库(压缩，生成单文件),适用于给其他团队项目中使用，仅忽略 antd,proComponents,moment 库
 - `npm run build-selectPkg` # 手动选择打包，防止后期包太多的情况全部打包消耗过多资源和时间
 - `npm run doc` # 运行项目文档， 包含组件库文档和项目说明等
 - `npm run test` # 跑测试用例
 
-### 全局 API
+## 特性
 
-已接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
+- umi4.x: [快速构建 React 应用，react(V18.2),router(V6),集成 auto import, 微前端等插件。](https://umijs.org/)
 
-#### without
+- TypeScript: 包代码提供强类型支持
 
-```tsx ｜ pure
-import { Spin } from 'antd';
-import { useState } from 'react';
-export function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <Spin />
-      {count}
-    </div>
-  );
-}
-```
+- state management: Umi Model & Valtio
 
-#### with
+- unocss: [即使按需原子化 CSS 编译](https://uno.antfu.me/)
 
-相关 API 直接不需要 import 即可使用
+- ant5.x: [快速研发企业级中后台产品, 开箱即用的高质量 React 组件](https://ant-design.gitee.io/index-cn)
 
-```tsx ｜ pure
-export function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <Spin />
-      {count}
-    </div>
-  );
-}
-```
+- theme ｜ layout: 完全兼容新版 antd5 特性，支持自定义配置主题，主题 token 接入 unocss 和 css，less 变量, keep-alive 等。
+
+- dumi4.x: [为组件开发场景而生的静态站点框架](https://d.umijs.org/)
+
+- father: [帮助开发者更高效、高质量地研发 NPM 包、生成构建产物、再完成发布。](https://github.com/umijs/father)
+
+- commontLint: [让你的 commits 更有意义](https://typicode.github.io/husky/#/)
+
+- jest: [优雅、简洁的 JavaScript 测试框架](https://jestjs.io/zh-Hans/)
+
+- proComponents: [页面级组件让中后台开发更简单](https://procomponents.ant.design/)
+
+- CI / CD: 一整套发布操作流自动化流程， 打包构建 =>跑测试用例 => 选择发包（多个）=> 选择升级的主版本包 => 打版本 tag => 生成日志 change-log => 写入到 dumi 文档 => 发布 npm
+
+- monorepos: 包和应用划分清晰，跨应用复用代码，按需安装，支持纯净模式，仅安装主应用和相关包依赖
+
+- dev | build: 优化 dev & build 配置，无需担心打包相关问题和 dev 环境的研发体验。
+
+- vscode integrate: [适配研发插件 monorepo-workspace，快速铺平应用，优化 commit 显示，加速研发效率](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace)
+
+- vscode cofig：针对该项目特有的编辑器的配置优化，如多文件折叠，autosave...
+
+- pwa: 支持离线访问，独立安装，缓存机制等[wrokbox](https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/)功能，增加首屏的打开速度。
+
+- search: 支持全文内容动态拼音检索，纠错检索等。
+
+- auto-import: 接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
+
+- CRUD: 丰富的业务组件，覆盖常用业务
+
+- final: 一直都在持续更新中,只为更快更好的研发体验...
 
 ### 发布
 

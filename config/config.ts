@@ -59,6 +59,25 @@ export default defineConfig({
       'src/**/**/**/**.tsx',
     ],
   },
+  mfsu: {
+    shared: {
+      react: {
+        singleton: true,
+      },
+      'react-router': {
+        singleton: true,
+      },
+      'react-router-dom': {
+        singleton: true,
+      },
+      '@ant-design/pro-components': {
+        singleton: true,
+      },
+      antd: {
+        singleton: true,
+      },
+    },
+  },
   routePrefetch: {},
   valtio: {}, // 开启 valtio 数据流方案
   manifest: {},

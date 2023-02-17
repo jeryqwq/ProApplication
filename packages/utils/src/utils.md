@@ -27,6 +27,40 @@ $ yarn add @vis/utils --registry http://10.28.184.132:4837/
 
 ## 常用工具类
 
+### transformData
+
+数据格式转换
+
+```js | pure
+{
+  columnList: [{alias: 'name'}];
+  data: [['a']]
+} => {
+  [{name: 'a'}]
+}
+```
+
+```jsx
+import { transformList2Standard } from '@vis/utils';
+import { Button } from 'antd';
+import React, { useState } from 'react';
+export default () => {
+  const [data, setData] = useState({
+    columnList: [{ alias: 'name' }],
+    data: [['a']],
+  });
+  return (
+    <Button
+      onClick={() => {
+        console.log(transformList2Standard(data));
+      }}
+    >
+      点我转换
+    </Button>
+  );
+};
+```
+
 ### nanoid
 
 用来生成唯一不重复 ID

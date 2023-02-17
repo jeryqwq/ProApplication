@@ -1,4 +1,4 @@
-import { VisHeader } from '@vis/components';
+import { VisHeader } from '@vis/common';
 import React from 'react';
 
 function Space1() {

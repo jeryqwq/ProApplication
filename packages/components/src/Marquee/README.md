@@ -90,8 +90,7 @@ export default () => {
 
 ```tsx
 import React, { useState, useRef } from 'react';
-import { Marquee } from '@vis/components';
-import { useAudio } from '@vis/common';
+import { Marquee, useAudio } from '@vis/components';
 import { SoundOutlined } from '@ant-design/icons';
 export default () => {
   const ref = useRef<HtmlElement>();

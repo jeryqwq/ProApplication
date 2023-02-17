@@ -1,5 +1,5 @@
 import React from 'react';
-import { VisCRUD } from '@vis/components';
+import { VisCRUD } from '@vis/common';
 export default () => {
   return (
     <div>

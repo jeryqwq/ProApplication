@@ -137,7 +137,7 @@ export default (hooksProps?: HooksProps) => {
   };
 };
 
-export const ContextMenuProps = (_?: ContextMenuProps) => <></>;
+export const ContextMenuProps = (_: ContextMenuProps) => <></>;
 
 export const TriggerProps = (_: TriggerProps) => <></>;
 

@@ -1,17 +1,15 @@
-import { ConfigProvider } from 'antd';
 import type { LegacyRef } from 'react';
-import  { useContext, useLayoutEffect, useRef } from 'react';
+import  {  useLayoutEffect, useRef } from 'react';
 import './index.less';
 import type { Options } from './word-cloud';
 import { COLOR_MODE, init, RENDER_MODE, TEXT_ORIENTATION } from './word-cloud.js';
+const prefix = 'vis-word-cloud';
 
 function WordCloud({ config, data }: { 
   /** 渲染的所有配置，参考高级配置	 */
   config: Options['config'];
   /** 渲染源数据	*/
   data: Array<{ name: string; value: number }> }) {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefix = getPrefixCls('vis-word-cloud');
   const elRef = useRef<HTMLDivElement>();
   useLayoutEffect(() => {
     init({

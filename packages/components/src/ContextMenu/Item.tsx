@@ -39,7 +39,7 @@ const Item = memo(function (props: ContextMenuItemProps) {
         setShowChildren(true);
         if (typeof item.children === 'function') {
           setLoadding(true);
-          const _children = await item.children(item);
+          const _children = await item.children(item, curData.current);
           item.children = _children;
           startTransition(() => {
             setLoadding(false);

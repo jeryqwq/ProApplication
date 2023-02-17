@@ -1,5 +1,4 @@
-import { Workspace } from '@vis/components';
-import React from 'react';
+import { Workspace } from '@vis/common';
 
 const HomePage: React.FC = () => {
   return (
@@ -7,7 +6,7 @@ const HomePage: React.FC = () => {
       <Workspace
         isUrlState
         desc="初始化demo，用来展示workSpace的基本用法，后续添加面包屑功能"
-        showBread={true}
+        showBread
         formProps={{
           size: 'small',
         }}

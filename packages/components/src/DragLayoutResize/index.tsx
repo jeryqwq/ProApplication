@@ -129,7 +129,12 @@ function DragLayoutResize(props: {
   }, []);
   return (
     <div
-      style={{ position: 'relative', ...WRAP_STYLES[direction], ...style }}
+      style={{
+        position: 'relative',
+        ...WRAP_STYLES[direction],
+        ...style,
+        userSelect: 'none',
+      }}
       ref={elWrap}
       id={props?.domId}
       onScroll={scrollBottom}

@@ -49,7 +49,7 @@ export default () => {
   };
   return (
     <div style={{ height: 200, display: 'flex' }}>
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <WordCloud config={config} data={temp} />
       </div>
     </div>

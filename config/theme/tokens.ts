@@ -42,7 +42,7 @@ export const antdTheme = {
   motionEaseInBack: 'cubic-bezier(0.71, -0.46, 0.88, 0.6)',
   motionEaseInQuint: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   motionEaseOutQuint: 'cubic-bezier(0.23, 1, 0.32, 1)',
-  borderRadius: 6,
+  borderRadius: 2,
   sizeUnit: 4,
   sizeStep: 4,
   sizePopupArrow: 16,

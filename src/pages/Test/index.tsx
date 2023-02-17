@@ -1,4 +1,5 @@
 import styles from './index.module.less';
+
 declare global {
   const env: {
     version: string;
@@ -6,7 +7,7 @@ declare global {
   };
 }
 function Table() {
-  const [a, setA] = useState(1);
+  const [a] = useState(1);
   console.log(process.env.version, process.env.isDev);
   return (
     <div className={styles.test}>

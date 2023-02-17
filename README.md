@@ -64,11 +64,7 @@
 
 - CI / CD: 一整套发布操作流自动化流程， 打包构建 =>跑测试用例 => 选择发包（多个）=> 选择升级的主版本包 => 打版本 tag => 生成日志 change-log => 写入到 dumi 文档 => 发布 npm
 
-- search: 支持全文内容动态拼音检索，纠错检索等。
-
 - monorepos: 包和应用划分清晰，跨应用复用代码，按需安装，支持纯净模式，仅安装主应用和相关包依赖
-
-- auto-import: 接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
 
 - dev | build: 优化 dev & build 配置，无需担心打包相关问题和 dev 环境的研发体验。
 
@@ -77,6 +73,12 @@
 - vscode cofig：针对该项目特有的编辑器的配置优化，如多文件折叠，autosave...
 
 - pwa: 支持离线访问，独立安装，缓存机制等[wrokbox](https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/)功能，增加首屏的打开速度。
+
+- search: 支持全文内容动态拼音检索，纠错检索等。
+
+- auto-import: 接入[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)插件，在应用中所有关于 react, antd, proComponents, ahooks, antd/icons 中的 api 可以不用导入直接使用，插件会自动导入需要的 API;
+
+- CRUD: 丰富的业务组件，覆盖常用业务
 
 - final: 一直都在持续更新中,只为更快更好的研发体验...
 
