@@ -88,7 +88,7 @@ export default defineConfig({
     master: {
       apps: [
         {
-          name: 'dash',
+          name: 'template',
           entry: isDev ? 'http://127.0.0.1:7777' : '/template/',
         },
       ],
