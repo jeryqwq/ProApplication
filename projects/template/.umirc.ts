@@ -1,38 +1,70 @@
 // @ts-nocheck
 import { defineConfig } from '@umijs/max';
-import routes from './src/routes'
-const genAlias = require('../../scripts/utils/genAlias')
-import config from './../../.umirc.ts'
-const { externals, headScripts } = config
-
-const isDev = process.env.NODE_ENV === 'development'
-
+import routes from './src/routes';
+const genAlias = require('../../scripts/utils/genAlias');
+import { antdTheme } from './../../config/theme/tokens';
+import componentTheme from './../../config/theme/component';
+const isDev = process.env.NODE_ENV === 'development';
 export default defineConfig({
-  externals,
-  headScripts,
-  antd: {},
+  antd: {
+    import: false,
+    theme: {
+      token: antdTheme,
+      components: componentTheme,
+    },
+  },
   hash: true,
   history: {
-    type: 'hash'
+    type: 'hash',
   },
   access: {},
   model: {},
   initialState: {},
+  mfsu: {
+    shared: {
+      react: {
+        singleton: true,
+      },
+      'react-router': {
+        singleton: true,
+      },
+      'react-router-dom': {
+        singleton: true,
+      },
+      '@ant-design/pro-components': {
+        singleton: true,
+      },
+      antd: {
+        singleton: true,
+      },
+    },
+  },
   request: {},
   routes,
   npmClient: 'pnpm',
-  publicPath: isDev ? '/' : '/youname/',
+  publicPath: isDev ? '/' : '/template/',
+  plugins: [
+    require.resolve('@umijs/plugins/dist/unocss'),
+    require.resolve('../../config/plugins/cssVarible'),
+  ],
+  unocss: {
+    watch: [
+      'src/**/**.tsx',
+      'src/**.tsx',
+      'src/**/**/**.tsx',
+      'src/**/**/**/**.tsx',
+    ],
+  },
   qiankun: {
     slave: {},
   },
   proxy: {
-    "/maintain": {
-      "target": "http://10.28.184.224:8113/"
+    '/maintain': {
+      target: 'http://10.28.184.224:8113/',
     },
-    "/vis": {
-      "target": "http://10.28.184.132:8089/"
-    }
+    '/vis': {
+      target: 'http://10.28.185.79:8089/', //"http://10.28.184.132:8089/"
+    },
   },
-  alias: genAlias()
+  alias: genAlias(),
 });
-

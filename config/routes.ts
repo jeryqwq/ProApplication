@@ -59,28 +59,13 @@ export default [
         path: '/subApp',
         routes: [
           {
-            name: '仪表板',
-            path: '/subApp/dash/*',
+            name: '模版',
+            path: '/subApp/template/*',
             // component: './MicroApp/dash'
-            microApp: 'dash',
+            microApp: 'template',
             meta: {
               desc: '可视化页面配置',
             },
-          },
-          {
-            name: '数据模型',
-            path: '/subApp/dataModel/*',
-            // component: './MicroApp/index'
-            microApp: 'dataModel',
-            meta: {
-              desc: '数据视图可以将需要的多张表视图,SQL视图关联成一张宽表，并进行需要的数据处理， 以便于进行后续的数据可视化分析工作',
-            },
-          },
-          {
-            name: '画布',
-            path: '/subApp/visual/*',
-            // component: './MicroApp/index'
-            microApp: 'visual',
           },
         ],
       },

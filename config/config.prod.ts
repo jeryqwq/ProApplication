@@ -35,18 +35,7 @@ export default defineConfig({
   //     remoteName: moduleFederationName,
   //     shared
   // },
-  externals: {
-    react: 'React',
-    'react-dom/client': 'ReactDOM',
-    lodash: '_',
-  },
-
   publicPath: '/main/',
-  headScripts: [
-    '/main/cdn/react.production.min.js',
-    '/main/cdn/react-dom.production.min.js',
-    '/main/cdn/lodash.min.js',
-  ],
   mfsu: {
     esbuild: true,
   },

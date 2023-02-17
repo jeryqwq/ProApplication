@@ -193,11 +193,11 @@ importers:
       '@types/crypto-js': 4.1.1
       '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.182
 
-  projects/dataModel:
-    specifiers: {}
-
   projects/template:
-    specifiers: {}
+    specifiers:
+      '@unocss/cli': ^0.48.4
+    devDependencies:
+      '@unocss/cli': 0.48.5
 
 packages:
 

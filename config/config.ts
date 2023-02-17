@@ -1,11 +1,11 @@
 import { defineConfig } from '@umijs/max';
+import { theme } from 'antd';
 import pkg from './../package.json';
 import { autoImportPlugin } from './auto-import';
-import { antdTheme } from './theme/tokens';
-import componentTheme from './theme/component';
-const genAlias = require('./../scripts/utils/genAlias');
 import routes from './routes';
-import { theme } from 'antd';
+import componentTheme from './theme/component';
+import { antdTheme } from './theme/tokens';
+const genAlias = require('./../scripts/utils/genAlias');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 const mapToken = defaultAlgorithm(defaultSeed);
@@ -89,21 +89,7 @@ export default defineConfig({
       apps: [
         {
           name: 'dash',
-          entry: isDev
-            ? 'http://127.0.0.1:7777'
-            : 'http://10.28.184.132:8088/dash/',
-        },
-        {
-          name: 'dataModel',
-          entry: isDev
-            ? 'http://127.0.0.1:7780'
-            : 'http://10.28.184.132:8088/dataModel/',
-        },
-        {
-          name: 'visual',
-          entry: isDev
-            ? 'http://127.0.0.1:7778'
-            : 'http://10.28.184.132:8088/visual/',
+          entry: isDev ? 'http://127.0.0.1:7777' : '/template/',
         },
       ],
     },
