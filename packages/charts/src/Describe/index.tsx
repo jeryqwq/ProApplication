@@ -64,7 +64,7 @@ function DescribeView({ comp = {} }: { comp: any }) {
             <span
               style={styles}
               onClick={() => {
-                const chartItem = chartClick?.find((k) => k.key === i);
+                const chartItem = chartClick?.find((k: any) => k.key === i);
                 if (chartItem && chartItem.open) {
                   let searchStr = '?';
                   for (const key in chartItem.query) {

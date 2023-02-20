@@ -135,9 +135,11 @@ importers:
     specifiers:
       '@ant-design/plots': ^1.0.9
       '@babel/runtime': ^7.16.3
+      '@vis/utils': workspace:^*
     dependencies:
       '@ant-design/plots': registry.npmmirror.com/@ant-design/plots/1.1.1
       '@babel/runtime': 7.18.9
+      '@vis/utils': link:../utils
 
   packages/common:
     specifiers:
@@ -175,9 +177,11 @@ importers:
   packages/test:
     specifiers:
       '@babel/runtime': ^7.16.3
+      '@vis/charts': workspace:*
       '@vis/utils': workspace:*
     dependencies:
       '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.18.9
+      '@vis/charts': link:../charts
       '@vis/utils': link:../utils
 
   packages/utils:

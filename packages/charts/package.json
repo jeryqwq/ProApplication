@@ -13,9 +13,6 @@
     "type": "git",
     "url": "http://10.28.184.132/ssa-vis/vis-components/Index/"
   },
-  "scripts": {
-    "build": "cross-env BUILD_TYPE=es father-build"
-  },
   "license": "MIT",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -26,9 +23,8 @@
     "dist",
     "es"
   ],
-  "dependencies": {
-    "@babel/runtime": "^7.16.3",
-    "@ant-design/plots": "^1.0.9"
+  "scripts": {
+    "build": "cross-env BUILD_TYPE=es father-build"
   },
   "browserslist": [
     "last 2 versions",
@@ -36,6 +32,11 @@
     "> 1%",
     "ie >= 11"
   ],
+  "dependencies": {
+    "@ant-design/plots": "^1.0.9",
+    "@babel/runtime": "^7.16.3",
+    "@vis/utils": "workspace:^*"
+  },
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

@@ -71,4 +71,12 @@ export default [
       },
     ],
   },
+  {
+    name: '首页',
+    path: '/login',
+    component: '@/layouts/login',
+    meta: {
+      desc: '登录页面',
+    },
+  },
 ];
