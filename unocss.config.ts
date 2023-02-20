@@ -12,7 +12,7 @@ export function createConfig({ dev = true } = {}) {
     ],
     theme: {
       colors: {
-        veryCool: '#0000ff', // class="text-very-cool",
+        demoColor: '#0000ff', // class="text-demo-color",
         ...(antdUnoColor() || {}),
       },
     },
