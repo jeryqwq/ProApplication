@@ -66,7 +66,9 @@ export default () => {
                     key={i.key}
                     className={styles['menu-item']}
                     onClick={() => {
-                      i.path && history.push(i.path);
+                      if (!i.routes) {
+                        i.path && history.push(i.path);
+                      }
                       selectRef.current.blur?.();
                     }}
                   >

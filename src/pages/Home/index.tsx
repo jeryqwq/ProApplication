@@ -1,8 +1,6 @@
-import Guide from '@/components/Guide';
-import { useModel } from '@umijs/max';
-import styles from './index.module.less';
 import { Workspace } from '@vis/common';
 import { Button } from 'antd';
+import styles from './index.module.less';
 import Space1 from './Space1';
 import Space2 from './Space2';
 const HomePage: React.FC = (props) => {

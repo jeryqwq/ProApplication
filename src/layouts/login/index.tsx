@@ -89,7 +89,7 @@ export default () => {
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'} />,
               }}
-              placeholder={'密码: proapp'}
+              placeholder={'密码: proapp or 123456'}
               rules={[
                 {
                   required: true,
