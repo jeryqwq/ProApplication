@@ -1,8 +1,8 @@
 // @ts-nocheck
+import { Unit } from '@vis/common';
 import { transformList2Standard } from '@vis/utils';
 import { Progress } from 'antd';
 import './index.less';
-import { Unit } from '@vis/common';
 const prefix = 'vis-progress-line-';
 export const progressLineDefaultConfig = {
   alias: '基础图表-条形进度条',

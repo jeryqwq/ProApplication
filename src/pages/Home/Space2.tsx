@@ -1,9 +1,11 @@
-import React from 'react';
-
 function Space2() {
   return (
     <div>
-      Space2
+      <ProDescriptions>
+        <ProDescriptions.Item label="Code" valueType="jsonCode">
+          {'{"key": "value"}'}
+        </ProDescriptions.Item>
+      </ProDescriptions>
     </div>
   );
 }

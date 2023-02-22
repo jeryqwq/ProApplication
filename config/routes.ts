@@ -1,5 +1,5 @@
 export default [
-  { path: '/', redirect: '/home' },
+  { path: '/', redirect: '/dash' },
   {
     name: '首页',
     path: '/',
@@ -10,6 +10,14 @@ export default [
     routes: [
       {
         name: '首页',
+        path: '/dash',
+        component: './Dash',
+        meta: {
+          desc: '仪表板，数据分析',
+        },
+      },
+      {
+        name: '工作区',
         path: '/home',
         component: './Home',
         meta: {
@@ -72,7 +80,7 @@ export default [
     ],
   },
   {
-    name: '首页',
+    name: '登录',
     path: '/login',
     component: '@/layouts/login',
     meta: {
