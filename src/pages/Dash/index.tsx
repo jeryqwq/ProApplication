@@ -1,10 +1,9 @@
 import { StatisticCard } from '@ant-design/pro-components';
 import { BasicColumn, BasicLine, ProgressLine, WordCloud } from '@vis/charts';
 import { VisHeader } from '@vis/common';
-import { Marquee } from '@vis/components';
 import { Statistic } from 'antd';
 const { Countdown } = Statistic;
-const { RENDER_MODE, TEXT_ORIENTATION } = WordCloud;
+const { RENDER_MODE } = WordCloud;
 const config = {
   mode: RENDER_MODE.SCROLL,
   animate: true,
@@ -38,24 +37,6 @@ export default () => {
 
   return (
     <div className="h-full overflow-auto">
-      <div style={{ position: 'absolute', top: '-6px', width: '100%' }}>
-        <Marquee>
-          <div className="inline-block bg-amber color-white p-3px b-rd-5px">
-            <Badge dot>
-              <NotificationOutlined style={{ fontSize: 16 }} />
-            </Badge>
-            <span>
-              welcome to proapp ,您有三条新消息，请注意查看
-              <a
-                href="https://github.com/jeryqwq/ProApplication"
-                target={'_blank'}
-              >
-                click to Github
-              </a>
-            </span>
-          </div>
-        </Marquee>
-      </div>
       <Row gutter={16} className="m-t-20px">
         <Col span={6}>
           <Card bordered={false}>
@@ -99,7 +80,7 @@ export default () => {
             />
           </Card>
         </Col>
-        <Col span={24} className="m-t-20px h-300px">
+        <Col span={24} className="m-t-20px ">
           <ProCard split={responsive ? 'horizontal' : 'vertical'}>
             <StatisticCard
               colSpan={responsive ? 24 : 6}
@@ -119,9 +100,17 @@ export default () => {
                 />
               }
               footer={
-                <>
-                  <Statistic value="70.98%" title="财年业绩完成率" />
-                </>
+                <Row>
+                  <Col span="8">
+                    <Statistic value="70.98%" title="财年业绩完成率" />
+                  </Col>
+                  <Col span="8">
+                    <Statistic value="70.98%" title="财年业绩完成率" />
+                  </Col>
+                  <Col span="8">
+                    <Statistic value="70.98%" title="财年业绩完成率" />
+                  </Col>
+                </Row>
               }
             />
             <StatisticCard.Group

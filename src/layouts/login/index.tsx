@@ -41,13 +41,13 @@ export default () => {
       <LoginForm
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
         title="ProApp"
-        subTitle="现代化大型Monorepos应用"
+        subTitle="现代化monorepos应用研发环境"
         onFinish={async ({ username, password }) => {
           if (
             (username === 'admin' || username === 'user') &&
             (password === '123456' || password === 'proapp')
           ) {
-            history.push('/home');
+            history.push('/dash');
           }
         }}
         actions={

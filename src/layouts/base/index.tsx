@@ -1,57 +1,67 @@
-import { ProConfigProvider, SettingDrawer } from '@ant-design/pro-components';
+import { ProConfigProvider, WaterMark } from '@ant-design/pro-components';
 import { history, matchPath, useModel, useOutlet } from '@umijs/max';
+import { Marquee } from '@vis/components';
 import { Tabs, theme } from 'antd';
 import routes from './../../../config/routes';
 import AvatarDropDown from './AvatarDropDown';
 import ContentSearch from './ContentSearch';
 import styles from './index.module.less';
 import { findRouterItem, RoutersType } from './layoutHelper';
-import NotificatTab from './NotificatTab';
 function Layouts() {
-  const pathname = history.location?.pathname;
+  const { pathname, search } = history.location;
   const { useToken } = theme;
   const { token } = useToken();
   const [settings, setSetting] = useState<any>({
     layout: 'mix',
     colorPrimary: token.colorPrimary,
   });
+  const [collapse, setCollapse] = useState(false);
   const curRouter = findRouterItem(pathname, routes);
   const outlet = useOutlet();
-  const [curPath, setCurPath] = useState(curRouter?.path || pathname); // 存储菜单的当前项path， 防止路由有通配符等情况还要再做匹配，浪费
+  const urlParamsStr = pathname + search;
+  const [curPath, setCurPath] = useState(urlParamsStr); // 存储菜单的当前项path， 防止路由有通配符等情况还要再做匹配，浪费
   let curTab: RoutersType | undefined = undefined;
   curRouter &&
     (curTab = {
       label: curRouter.name || '',
-      key: pathname,
+      key: urlParamsStr,
+      path: urlParamsStr,
       children: <div className={`vis__fadeIn`}>{outlet}</div>,
     });
   const { memoHistory, push, remove } = useModel('memoHistory');
   const curRouterItem = memoHistory.find(
-    (i) => i.key && matchPath({ path: pathname }, i.key),
+    // 是否已经有缓存
+    (i) => i.key && matchPath({ path: urlParamsStr }, i.key),
   );
   useEffect(() => {
     // 监听pathname属性改变自动push State
     if (!curRouterItem && curRouter) {
       // 没有命中已缓存路由时缓存一次
       curTab && push(curTab);
-      setCurPath(pathname);
+      curRouter.path && setCurPath(urlParamsStr); // 适配微前端，不能使用pathname
     } else {
-      setCurPath(pathname);
+      setCurPath(urlParamsStr);
     }
   }, [pathname]);
 
   return (
     // proLayout未适配antd5动态主题，这里手动适配下
-    <ProConfigProvider dark={settings.dark}>
+    <ProConfigProvider hashed={false}>
       <ConfigProvider
         theme={{
           token: {
-            // 可放置动态token， 如用户自定义级别配置
+            colorPrimary: settings.colorPrimary,
           },
         }}
       >
         <ProLayout
           appList={[
+            {
+              icon: 'https://github.githubassets.com/images/modules/logos_page/Octocat.png',
+              title: 'Github-ProApp',
+              url: 'https://github.com/jeryqwq/ProApplication',
+              target: '_blank',
+            },
             {
               icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
               title: 'Ant Design',
@@ -95,10 +105,7 @@ function Layouts() {
           location={{
             pathname: curPath,
           }}
-          waterMarkProps={{
-            content: 'your username',
-          }}
-          title="yourname"
+          title="pro-app"
           logo="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
           route={{
             routes: routes[1].routes,
@@ -110,6 +117,7 @@ function Layouts() {
           rightContentRender={() => {
             return (
               <div
+                onClick={() => setCollapse(false)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -118,10 +126,30 @@ function Layouts() {
                 }}
               >
                 <ContentSearch />
-                <div className="cursor-pointer hover:bg-colorBgTextHover items-center justify-center text-center flex h-32px w-30px   border-rd-5px transition-all-500">
-                  <QuestionCircleOutlined />
-                </div>
-                <NotificatTab />
+                <SettingDrawer
+                  hideCopyButton={false}
+                  enableDarkTheme
+                  settings={settings}
+                  collapse={collapse}
+                  onSettingChange={(changeSetting) => {
+                    changeSetting.colorPrimary &&
+                      document
+                        .querySelector('html')
+                        ?.style.setProperty(
+                          '--colorPrimary',
+                          changeSetting.colorPrimary,
+                        );
+                    setSetting(changeSetting);
+                  }}
+                  disableUrlParams
+                />
+                <SkinOutlined
+                  className="hover:bg-colorBgTextHover p-9px border-rd-5px"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCollapse(true);
+                  }}
+                />
                 <AvatarDropDown />
               </div>
             );
@@ -130,52 +158,68 @@ function Layouts() {
             onClick(e) {
               const { key } = e;
               setCurPath(key);
-              history.push(key.replaceAll('*', '')); // 适配微前端
+              history.push(key);
             },
             selectedKeys: [curPath],
           }}
           {...settings}
         >
-          <Tabs
-            type="editable-card"
-            hideAdd
-            activeKey={curPath}
-            onChange={(key) => {
-              setCurPath(key);
-              key && history.replace(key.replaceAll('*', ''));
+          <div
+            style={{
+              position: 'fixed',
+              top: '13px',
+              zIndex: 101,
+              width: 'calc(100% - 500px)',
+              textAlign: 'center',
             }}
-            onEdit={(targetKey, action: 'add' | 'remove') => {
-              if (action === 'remove' && memoHistory.length > 1) {
-                if (curPath === targetKey) {
-                  // 如果删除了当前激活的菜单项，激活上一个或者下一个
-                  const curIndex = memoHistory.findIndex(
-                    (i) => i.key === targetKey,
-                  );
-                  setCurPath(
-                    (memoHistory[curIndex + 1] || memoHistory[curIndex - 1])
-                      ?.key as '',
-                  );
+          >
+            <Marquee>
+              <div
+                className="inline-block text-amber  p-3px b-rd-5px b-amber b-1px b-solid cursor-pointer"
+                onClick={() => {
+                  window.open('https://github.com/jeryqwq/ProApplication');
+                }}
+              >
+                <Badge dot>
+                  <NotificationOutlined
+                    style={{
+                      fontSize: 16,
+                      color: 'rgb(251, 191, 36)',
+                    }}
+                  />
+                </Badge>
+                <span>welcome to vis-react ,您有三条新消息，请注意查看</span>
+              </div>
+            </Marquee>
+          </div>
+          <WaterMark content="pro-app">
+            <Tabs
+              type="editable-card"
+              hideAdd
+              activeKey={curPath}
+              onChange={(key) => {
+                const item = memoHistory.find((i) => i.key === key);
+                item?.path && setCurPath(item.path);
+                item?.path && history.push(item.path);
+              }}
+              onEdit={(targetKey, action: 'add' | 'remove') => {
+                if (action === 'remove' && memoHistory.length > 1) {
+                  if (curPath === targetKey) {
+                    // 如果删除了当前激活的菜单项，激活上一个或者下一个
+                    const curIndex = memoHistory.findIndex(
+                      (i) => i.key === targetKey,
+                    );
+                    setCurPath(
+                      (memoHistory[curIndex + 1] || memoHistory[curIndex - 1])
+                        ?.path as '',
+                    );
+                  }
+                  remove(targetKey as string);
                 }
-                remove(targetKey as string);
-              }
-            }}
-            items={memoHistory as any}
-          />
-          <SettingDrawer
-            hideCopyButton={false}
-            enableDarkTheme
-            settings={settings}
-            onSettingChange={(changeSetting) => {
-              changeSetting.colorPrimary &&
-                document
-                  .querySelector('html')
-                  ?.style.setProperty(
-                    '--colorPrimary',
-                    changeSetting.colorPrimary,
-                  );
-              setSetting(changeSetting);
-            }}
-          />
+              }}
+              items={memoHistory as any}
+            />
+          </WaterMark>
         </ProLayout>
       </ConfigProvider>
     </ProConfigProvider>
