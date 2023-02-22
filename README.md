@@ -1,6 +1,6 @@
 # [yourname](https://jeryqwq.github.io/build-docs/#/)
 
-线上资源：[主应用](https://jeryqwq.github.io/main/#/login) [子应用](https://jeryqwq.github.io/template/) [在线文档](https://jeryqwq.github.io/build-docs#/)
+线上资源：[主应用](https://jeryqwq.github.io/main/#/dash) [子应用](https://jeryqwq.github.io/template/) [在线文档](https://jeryqwq.github.io/build-docs#/)
 
 ## PlatForm & Tools
 
