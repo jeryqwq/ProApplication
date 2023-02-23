@@ -2,6 +2,7 @@ import { defineConfig } from '@umijs/max';
 import { theme } from 'antd';
 import pkg from './../package.json';
 import { autoImportPlugin } from './auto-import';
+// @ts-ignore
 import routes from './routes';
 import componentTheme from './theme/component';
 import { antdTheme } from './theme/tokens';

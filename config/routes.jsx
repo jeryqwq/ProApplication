@@ -1,3 +1,13 @@
+import {
+  BarChartOutlined,
+  BorderInnerOutlined,
+  GithubOutlined,
+  IdcardOutlined,
+  RocketOutlined,
+  SubnodeOutlined,
+} from '@ant-design/icons';
+import React from 'react';
+
 export default [
   { path: '/', redirect: '/dash' },
   {
@@ -13,16 +23,19 @@ export default [
         path: '/dash',
         component: './Dash',
         meta: {
-          desc: '仪表板，数据分析',
+          desc: '数据分析',
+          keepAlive: false,
         },
+        icon: <BarChartOutlined />,
       },
       {
-        name: '工作区',
+        name: '工作区Demo',
         path: '/home',
         component: './Home',
         meta: {
           desc: '初始化demo，用来展示workSpace的基本用法，后续添加面包屑功能',
         },
+        icon: <GithubOutlined />,
       },
       {
         name: '权限演示',
@@ -30,7 +43,9 @@ export default [
         component: './Access',
         meta: {
           desc: '演示权限',
+          keepAlive: false,
         },
+        icon: <IdcardOutlined />,
       },
       {
         name: 'CRUD 示例',
@@ -39,10 +54,12 @@ export default [
         meta: {
           desc: '基础的CRUD模型DEMO',
         },
+        icon: <BorderInnerOutlined />,
       },
       {
         name: '测试',
         path: '/test',
+        icon: <RocketOutlined />,
         routes: [
           {
             name: '测试主页',
@@ -65,26 +82,35 @@ export default [
       {
         name: '微前端',
         path: '/subApp',
+        icon: <SubnodeOutlined />,
         routes: [
           {
-            name: '模版',
-            path: '/subApp/template/*',
+            name: '仪表板',
+            path: '/subApp/dash/*',
             // component: './MicroApp/dash'
-            microApp: 'template',
+            microApp: 'dash',
             meta: {
               desc: '可视化页面配置',
             },
           },
+          {
+            name: '数据模型',
+            path: '/subApp/dataModel/*',
+            // component: './MicroApp/index'
+            microApp: 'dataModel',
+            meta: {
+              desc: '数据视图可以将需要的多张表视图,SQL视图关联成一张宽表，并进行需要的数据处理， 以便于进行后续的数据可视化分析工作',
+            },
+          },
+
+          {
+            name: '画布',
+            path: '/subApp/visual/*',
+            // component: './MicroApp/index'
+            microApp: 'visual',
+          },
         ],
       },
     ],
-  },
-  {
-    name: '登录',
-    path: '/login',
-    component: '@/layouts/login',
-    meta: {
-      desc: '登录页面',
-    },
   },
 ];

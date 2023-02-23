@@ -25,6 +25,7 @@ export type RoutersType = {
   firstWordConnect?: string;
   meta?: {
     desc?: string;
+    keepAlive?: boolean;
   };
   hitType?: HitType;
   _pinyinStr?: string;

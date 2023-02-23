@@ -1,5 +1,6 @@
 import { VisHeader } from '@vis/common';
 import React from 'react';
+import { history } from '@umijs/max';
 
 function Space1() {
   return (
@@ -35,7 +36,9 @@ function Space1() {
             ),
           },
         ]}
-        tabBarExtraContent={<span>🫱</span>}
+        tabBarExtraContent={
+          <span onClick={() => history.push('/test')}>🫱点我跳转</span>
+        }
       >
         {(item) => {
           return <div>{item?.content}</div>;

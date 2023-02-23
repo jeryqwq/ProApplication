@@ -9,6 +9,11 @@ const routerConfig = [
         component: './index',
         name: 'index',
       },
+      {
+        path: '/test',
+        component: './test',
+        name: 'test',
+      },
     ],
   },
 ];

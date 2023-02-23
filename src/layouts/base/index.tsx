@@ -2,11 +2,13 @@ import { ProConfigProvider, WaterMark } from '@ant-design/pro-components';
 import { history, matchPath, useModel, useOutlet } from '@umijs/max';
 import { Marquee } from '@vis/components';
 import { Tabs, theme } from 'antd';
+// @ts-ignore
 import routes from './../../../config/routes';
 import AvatarDropDown from './AvatarDropDown';
 import ContentSearch from './ContentSearch';
 import styles from './index.module.less';
 import { findRouterItem, RoutersType } from './layoutHelper';
+import NotificatTab from './NotificatTab';
 function Layouts() {
   const { pathname, search } = history.location;
   const { useToken } = theme;
@@ -15,7 +17,6 @@ function Layouts() {
     layout: 'mix',
     colorPrimary: token.colorPrimary,
   });
-  const [collapse, setCollapse] = useState(false);
   const curRouter = findRouterItem(pathname, routes);
   const outlet = useOutlet();
   const urlParamsStr = pathname + search;
@@ -33,6 +34,8 @@ function Layouts() {
     // 是否已经有缓存
     (i) => i.key && matchPath({ path: urlParamsStr }, i.key),
   );
+  const keepAlive = curRouter?.meta?.keepAlive;
+
   useEffect(() => {
     // 监听pathname属性改变自动push State
     if (!curRouterItem && curRouter) {
@@ -40,6 +43,14 @@ function Layouts() {
       curTab && push(curTab);
       curRouter.path && setCurPath(urlParamsStr); // 适配微前端，不能使用pathname
     } else {
+      if (keepAlive === false && curRouterItem) {
+        // 关闭keepAlive时更新下children，使用最新的渲染， 不加随机key会不更新
+        curRouterItem.children = (
+          <div key={Math.random()} className={`vis__fadeIn`}>
+            {outlet}
+          </div>
+        );
+      }
       setCurPath(urlParamsStr);
     }
   }, [pathname]);
@@ -56,6 +67,12 @@ function Layouts() {
       >
         <ProLayout
           appList={[
+            {
+              icon: 'https://gw.alipayobjects.com/zos/bmw-prod/d3e3eb39-1cd7-4aa5-827c-877deced6b7e/lalxt4g3_w256_h256.png',
+              title: 'Doc-ProApp',
+              url: 'https://jeryqwq.github.io/build-docs/#/',
+              target: '_blank',
+            },
             {
               icon: 'https://github.githubassets.com/images/modules/logos_page/Octocat.png',
               title: 'Github-ProApp',
@@ -126,11 +143,14 @@ function Layouts() {
                 }}
               >
                 <ContentSearch />
+                <div className="cursor-pointer hover:bg-colorBgTextHover items-center justify-center text-center flex h-32px w-30px   border-rd-5px transition-all-500">
+                  <QuestionCircleOutlined />
+                </div>
+                <NotificatTab />
                 <SettingDrawer
                   hideCopyButton={false}
                   enableDarkTheme
                   settings={settings}
-                  collapse={collapse}
                   onSettingChange={(changeSetting) => {
                     changeSetting.colorPrimary &&
                       document
@@ -142,13 +162,6 @@ function Layouts() {
                     setSetting(changeSetting);
                   }}
                   disableUrlParams
-                />
-                <SkinOutlined
-                  className="hover:bg-colorBgTextHover p-9px border-rd-5px"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCollapse(true);
-                  }}
                 />
                 <AvatarDropDown />
               </div>
@@ -175,7 +188,11 @@ function Layouts() {
           >
             <Marquee>
               <div
-                className="inline-block text-amber  p-3px b-rd-5px b-amber b-1px b-solid cursor-pointer"
+                style={{
+                  color: 'var(--colorPrimary)',
+                  borderColor: 'var(--colorPrimary)',
+                }}
+                className="inline-block   p-3px b-rd-5px  b-1px b-solid cursor-pointer"
                 onClick={() => {
                   window.open('https://github.com/jeryqwq/ProApplication');
                 }}
@@ -184,11 +201,11 @@ function Layouts() {
                   <NotificationOutlined
                     style={{
                       fontSize: 16,
-                      color: 'rgb(251, 191, 36)',
+                      color: 'var(--colorPrimary)',
                     }}
                   />
                 </Badge>
-                <span>welcome to vis-react ,您有三条新消息，请注意查看</span>
+                <span>welcome to pro-app ,您有三条新消息，请注意查看</span>
               </div>
             </Marquee>
           </div>

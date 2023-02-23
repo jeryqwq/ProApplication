@@ -1,5 +1,3 @@
-import Guide from '@/components/Guide';
-import { useModel } from '@umijs/max';
 import styles from './index.module.less';
 import { Workspace } from '@vis/common';
 import { Button } from 'antd';

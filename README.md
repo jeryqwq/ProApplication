@@ -45,7 +45,7 @@
 - umi4.x: [快速构建 React 应用，react(V18.2),router(V6),集成 auto import, 微前端等插件。](https://umijs.org/)
 - TypeScript: 所有代码提供强类型支持
 - state management: Umi Model & Valtio
-- unocss: [即使按需原子化 CSS 编译](https://uno.antfu.me/)
+- unocss: [及时按需原子化 CSS 编译](https://uno.antfu.me/)
 - ant5.x: [快速研发企业级中后台产品, 开箱即用的高质量 React 组件](https://ant-design.gitee.io/index-cn)
 - theme ｜ layout: 完全兼容新版 antd5 特性，支持自定义配置主题，主题 token 接入 unocss 和 css，less 变量, keep-alive 等。
 - dumi2.x: [为组件开发场景而生的静态站点框架](https://d.umijs.org/)

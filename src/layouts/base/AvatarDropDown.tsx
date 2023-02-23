@@ -7,18 +7,22 @@ export default () => {
         menu={{
           items: [
             {
-              label: <a href="https://www.antgroup.com">1st menu item</a>,
+              label: <a>我的部门</a>,
               key: '0',
             },
             {
-              label: <a href="https://www.aliyun.com">2nd menu item</a>,
+              label: <a>个人信息</a>,
+              key: '0',
+            },
+            {
+              label: <a>设置</a>,
               key: '1',
             },
             {
               type: 'divider',
             },
             {
-              label: '3rd menu item',
+              label: '退出',
               key: '3',
             },
           ],
