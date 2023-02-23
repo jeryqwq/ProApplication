@@ -43,13 +43,16 @@ function loadMenu(pkgName: string, alias: string) {
 }
 
 export default defineConfig({
-  title: 'yourname',
+  title: 'ProApp',
   apiParser: {},
   themeConfig: {
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
     hd: { rules: [] },
     rtl: true,
-    name: 'yourname',
+    socialLinks: {
+      github: 'https://github.com/jeryqwq/ProApplication',
+    },
+    name: 'ProApp',
     footer: `Open-source MIT Licensed | Copyright © 2023-present
     <br />
     Powered by <a href="https://github.com/jeryqwq">Chencc</a>`,

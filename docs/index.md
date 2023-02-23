@@ -1,5 +1,5 @@
 ---
-title: yourname - 快速构建现代化monorepo应用
+title: ProApp - 快速构建现代化monorepo应用
 hero:
   title: Pro-App
   description: 🏆 快速构建现代化monorepo应用 🚀
