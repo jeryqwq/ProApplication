@@ -7,7 +7,6 @@ const HomePage: React.FC = (props) => {
   return (
     <div className={styles.container}>
       <Workspace
-        isUrlState
         showBread
         fixHeader
         footer={

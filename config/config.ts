@@ -90,7 +90,7 @@ export default defineConfig({
       apps: [
         {
           name: 'template',
-          entry: isDev ? 'http://127.0.0.1:7777' : '/template/',
+          entry: isDev ? 'http://127.0.0.1:7779' : '/template/',
         },
       ],
     },
