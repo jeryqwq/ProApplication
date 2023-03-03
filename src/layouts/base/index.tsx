@@ -134,7 +134,6 @@ function Layouts() {
           rightContentRender={() => {
             return (
               <div
-                onClick={() => setCollapse(false)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
