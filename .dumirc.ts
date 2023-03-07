@@ -53,7 +53,7 @@ export default defineConfig({
       github: 'https://github.com/jeryqwq/ProApplication',
     },
     name: 'ProApp',
-    footer: `Open-source MIT Licensed | Copyright © 2023-present
+    footer: `Open-source MIT Licensed | Copyright © ${new Date().getFullYear()}-present
     <br />
     Powered by <a href="https://github.com/jeryqwq">Chencc</a>`,
     sidebar: {

@@ -94,7 +94,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.2",
     "css-minimizer-webpack-plugin": "^1.2.0",
-    "dumi": "2.1.10",
+    "dumi": "2.1.15",
     "eslint": "^8.25.0",
     "father-build": "^1.22.3",
     "husky": "^8.0.1",
