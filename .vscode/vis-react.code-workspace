@@ -1,7 +1,7 @@
 {
   "folders": [
 	{
-		"name": "✨ vis-react",
+		"name": "✨ youname",
 		"path": ".."
 	},
 	{
@@ -29,24 +29,8 @@
 		"path": "../packages/utils"
 	},
 	{
-		"name": "🌕@vis/dashboard",
-		"path": "../projects/dashboard"
-	},
-	{
-		"name": "🌗@vis/data-model",
-		"path": "../projects/dataModel"
-	},
-	{
 		"name": "🌘@vis/template",
 		"path": "../projects/template"
-	},
-	{
-		"name": "🌑@vis/form",
-		"path": "../projects/visForm"
-	},
-	{
-		"name": "🌒@vis/visual",
-		"path": "../projects/visVisual"
 	}
 ],
   "settings": {}
