@@ -10,6 +10,7 @@
     "scripts"
   ],
   "compilerOptions": {
+    "baseUrl": ".",
     "jsx": "react-jsx",
     "types": ["unplugin-icons/types/react"]
   }
