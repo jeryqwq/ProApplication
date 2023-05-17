@@ -25,7 +25,7 @@
     "prepare": "husky install ",
     "pure-install": "node ./scripts/pureInstall.js",
     "release": "pnpm build-lib && pnpm build-dist &&  npm test &&  pnpm changeset && pnpm changeset version && node ./scripts/createRelease.js && npm run release:only && build-doc",
-    "release:only": "node ./scripts/checkDeps && node ./scripts/preDeploy && pnpm changeset publish --registry=http://10.28.184.132:4837/",
+    "release:only": "node ./scripts/checkDeps && node ./scripts/preDeploy && pnpm changeset publish --registry=http://xxx.xxx.xxx.xxx:xxxx/",
     "test": "node ./scripts/checkDeps && jest",
     "test:coverage": "jest --coverage",
     "version": "node ./scripts/gen_version.js"

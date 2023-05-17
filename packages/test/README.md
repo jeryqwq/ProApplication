@@ -18,13 +18,13 @@ See our website [@vis/test](https://umijs.org/plugins/test) for more information
 Using npm:
 
 ```bash
-$ npm install --save @vis/test   --registry http://10.28.184.132:4837/
+$ npm install --save @vis/test   --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @vis/test   --registry http://10.28.184.132:4837/
+$ yarn add @vis/test   --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 测试组件描述

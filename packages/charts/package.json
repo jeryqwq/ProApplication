@@ -8,7 +8,7 @@
     "ant-design",
     "ant-design-pro"
   ],
-  "homepage": "http://10.28.184.132:4837/-/web/detail/@vis/components",
+  "homepage": "http://xxx.xxx.xxx.xxx:xxxx/-/web/detail/@vis/components",
   "repository": {
     "type": "git",
     "url": "http://10.28.184.132/ssa-vis/vis-components/Index/"
@@ -43,7 +43,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://10.28.184.132:4837/"
+    "registry": "http://xxx.xxx.xxx.xxx:xxxx/"
   },
   "authors": [
     "chenjie <jery1997@foxmail.com> "

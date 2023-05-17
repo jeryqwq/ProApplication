@@ -14,13 +14,13 @@ nav:
 Using npm:
 
 ```bash
-$ npm install --save @vis/components   --registry http://10.28.184.132:4837/
+$ npm install --save @vis/components   --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @vis/components   --registry http://10.28.184.132:4837/
+$ yarn add @vis/components   --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 ## DragLayoutResize 拖拽改变宽高

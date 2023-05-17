@@ -33,4 +33,4 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- 增加 chart，common 包，增加基础结构代码和文档，增加 DragLayoutResize 组件 ([ef2c8eb](http://10.28.184.132:4837/-/web/detail/@vis/components/commits/ef2c8eb2613650fa23ae38b340d882ace57fe14e))
+- 增加 chart，common 包，增加基础结构代码和文档，增加 DragLayoutResize 组件 ([ef2c8eb](http://xxx.xxx.xxx.xxx:xxxx/-/web/detail/@vis/components/commits/ef2c8eb2613650fa23ae38b340d882ace57fe14e))

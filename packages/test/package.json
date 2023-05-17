@@ -43,7 +43,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://10.28.184.132:4837/"
+    "registry": "http://xxx.xxx.xxx.xxx:xxxx/"
   },
   "authors": []
 }

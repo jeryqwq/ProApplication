@@ -18,13 +18,13 @@ See our website [@ant-design/pro-utils](https://procomponent.ant.design/) for mo
 Using npm:
 
 ```bash
-$ npm install --save  @vis/utils --registry http://10.28.184.132:4837/
+$ npm install --save  @vis/utils --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @vis/utils --registry http://10.28.184.132:4837/
+$ yarn add @vis/utils --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 ## nanoid

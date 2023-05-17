@@ -63,7 +63,7 @@ group:
 当前 @vis 下 每一个组件都是一个独立的包，你需要在你的项目中安装对应的 npm 包并使用。
 
 ```shell
-$ pnpm i @vis/xxx --save  --registry http://10.28.184.132:4837/
+$ pnpm i @vis/xxx --save  --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 当前 @vis 提供了如下组件(包)可直接使用：

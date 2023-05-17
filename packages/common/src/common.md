@@ -14,13 +14,13 @@ nav:
 Using npm:
 
 ```bash
-$ npm install --save @vis/common   --registry http://10.28.184.132:4837/
+$ npm install --save @vis/common   --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @vis/common   --registry http://10.28.184.132:4837/
+$ yarn add @vis/common   --registry http://xxx.xxx.xxx.xxx:xxxx/
 ```
 
 ## 业务组件

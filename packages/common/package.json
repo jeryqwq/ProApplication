@@ -9,7 +9,7 @@
     "ant-design-pro",
     "ant-design/pro-components"
   ],
-  "homepage": "http://10.28.184.132:4837/-/web/detail/vis",
+  "homepage": "http://xxx.xxx.xxx.xxx:xxxx/-/web/detail/vis",
   "bugs": "http://github.com/umijs/plugins/issues",
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://10.28.184.132:4837/"
+    "registry": "http://xxx.xxx.xxx.xxx:xxxx/"
   },
   "authors": [
     "chenjie <jery1997@foxmail.com>"

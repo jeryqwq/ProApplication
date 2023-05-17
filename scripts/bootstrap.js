@@ -47,7 +47,7 @@ const getPkgs = require('./utils/getPackages');
         "types": "es/index.d.ts",
         publishConfig: {
           access: 'public',
-          registry: "http://10.28.184.132:4837/"
+          registry: "http://xxx.xxx.xxx.xxx:xxxx/"
         },
       };
       if (pkgJSONExists) {
@@ -167,13 +167,13 @@ const getPkgs = require('./utils/getPackages');
 Using npm:
 
 \`\`\`bash
-$ npm install --save ${name}  --registry http://10.28.184.132:4837/
+$ npm install --save ${name}  --registry http://xxx.xxx.xxx.xxx:xxxx/
 \`\`\`
 
 or using yarn:
 
 \`\`\`bash
-$ yarn add ${name} --registry http://10.28.184.132:4837/
+$ yarn add ${name} --registry http://xxx.xxx.xxx.xxx:xxxx/
 \`\`\`
 `,
       );
