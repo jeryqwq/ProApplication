@@ -41,7 +41,7 @@
     "registry": "http://10.28.184.132:4837/"
   },
   "authors": [
-    "chenjie <chen.jie3@asiainfo-sec.com> "
+    "chenjie <jery1997@foxmail.com> "
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.3",

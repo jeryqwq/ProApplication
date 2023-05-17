@@ -35,7 +35,7 @@ const getPkgs = require('./utils/getPackages');
           "build": "cross-env BUILD_TYPE=es father-build",
         },
         browserslist: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
-        authors: ['chenjie <chen.jie3@asiainfo-sec.com> '],
+        authors: ['chenjie <jery1997@foxmail.com> '],
         license: 'MIT',
         homepage: 'https://10.28.184.132:4837/-/web/detail/@vis/components',
         peerDependencies: {

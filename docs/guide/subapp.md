@@ -23,15 +23,7 @@ qiankun: {
       apps: [
         {
           name: 'dash',
-          entry: isDev ? 'http://127.0.0.1:7777' : 'http://10.28.184.132:8088/dash/',
-        },
-        {
-          name: 'dataModel',
-          entry: isDev ? 'http://127.0.0.1:7780' : 'http://10.28.184.132:8088/dataModel/',
-        },
-        {
-          name: 'visual',
-          entry: isDev ? 'http://127.0.0.1:7778' : 'http://10.28.184.132:8088/visual/',
+          entry: isDev ? 'http://127.0.0.1:7777' : 'http://xxx.xxx.xxx.xxx:8088/template/',
         }
       ],
     },
