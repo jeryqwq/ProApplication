@@ -37,7 +37,6 @@ const getPkgs = require('./utils/getPackages');
         browserslist: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
         authors: ['chenjie <jery1997@foxmail.com> '],
         license: 'MIT',
-        homepage: 'https://10.28.184.132:4837/-/web/detail/@vis/components',
         peerDependencies: {
           antd: '>=4.20.0',
           react: '>=16.9.0',
