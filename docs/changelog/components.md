@@ -23,11 +23,11 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.2.0](http://10.28.184.132/ssa-vis/vis-components/Index/compare/@vis/common@1.1.0...@vis/common@1.2.0) (2022-07-18)
+# [1.2.0](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/compare/@vis/common@1.1.0...@vis/common@1.2.0) (2022-07-18)
 
 ### Features
 
-- 日志跳转详情对接 gitlab ([bd62a9f](http://10.28.184.132/ssa-vis/vis-components/Index/commits/bd62a9f6fba5b5aab7704236c06a3663ae84e16a))
+- 日志跳转详情对接 gitlab ([bd62a9f](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/commits/bd62a9f6fba5b5aab7704236c06a3663ae84e16a))
 
 # 1.1.0 (2022-07-15)
 

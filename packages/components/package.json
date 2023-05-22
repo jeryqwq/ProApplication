@@ -11,7 +11,7 @@
   "homepage": "http://xxx.xxx.xxx.xxx:xxxx/-/web/detail/@vis/components",
   "repository": {
     "type": "git",
-    "url": "http://10.28.184.132/ssa-vis/vis-components/Index/"
+    "url": "http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/"
   },
   "scripts": {
     "build": "cross-env BUILD_TYPE=es father-build"

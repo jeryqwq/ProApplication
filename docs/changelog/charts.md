@@ -23,21 +23,21 @@ nav: 更新日志
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.3.0](http://10.28.184.132/ssa-vis/vis-components/Index/compare/@vis/charts@1.2.0...@vis/charts@1.3.0) (2022-07-19)
+# [1.3.0](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/compare/@vis/charts@1.2.0...@vis/charts@1.3.0) (2022-07-19)
 
 ### Features
 
-- 增加独立发布脚本，增加发布相关文档说明 ([cb009b5](http://10.28.184.132/ssa-vis/vis-components/Index/commits/cb009b5bc5837dedab851d9d38dae1b046a406c5))
+- 增加独立发布脚本，增加发布相关文档说明 ([cb009b5](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/commits/cb009b5bc5837dedab851d9d38dae1b046a406c5))
 
-# [1.2.0](http://10.28.184.132/ssa-vis/vis-components/Index/compare/@vis/charts@1.1.0...@vis/charts@1.2.0) (2022-07-18)
+# [1.2.0](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/compare/@vis/charts@1.1.0...@vis/charts@1.2.0) (2022-07-18)
 
 ### Features
 
-- 日志跳转详情对接 gitlab ([bd62a9f](http://10.28.184.132/ssa-vis/vis-components/Index/commits/bd62a9f6fba5b5aab7704236c06a3663ae84e16a))
+- 日志跳转详情对接 gitlab ([bd62a9f](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/commits/bd62a9f6fba5b5aab7704236c06a3663ae84e16a))
 
 ### Performance Improvements
 
-- 增加词云图组件，增加词云图文档，优化主页文档。 ([129aa35](http://10.28.184.132/ssa-vis/vis-components/Index/commits/129aa3546ac4a7c114aec3fecfd4626ef1adacec))
+- 增加词云图组件，增加词云图文档，优化主页文档。 ([129aa35](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/commits/129aa3546ac4a7c114aec3fecfd4626ef1adacec))
 
 # 1.1.0 (2022-07-15)
 

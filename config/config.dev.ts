@@ -16,7 +16,7 @@ export default defineConfig({
   // headScripts: ['/cdn/react.dev.js', '/cdn/react-dom.dev.js'],
   proxy: {
     '/vis': {
-      target: 'http://10.28.184.132:8089/',
+      // target: 'http://xxx.xxx.xx.xxx:8089/',
     },
   },
 });

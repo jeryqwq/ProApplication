@@ -58,13 +58,6 @@ export default defineConfig({
   qiankun: {
     slave: {},
   },
-  proxy: {
-    '/maintain': {
-      target: 'http://10.28.184.224:8113/',
-    },
-    '/vis': {
-      target: 'http://10.28.185.79:8089/', //"http://10.28.184.132:8089/"
-    },
-  },
+  proxy: {},
   alias: genAlias(),
 });

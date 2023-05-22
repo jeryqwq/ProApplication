@@ -27,12 +27,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.45.0](http://10.28.184.132/ssa-vis/vis-components/Index/compare/@vis/utils@1.44.0...@vis/utils@1.45.0) (2022-07-18)
+# [1.45.0](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/compare/@vis/utils@1.44.0...@vis/utils@1.45.0) (2022-07-18)
 
 ### Features
 
-- 打包后自动重新生成相关库变动后的更新内容 ([45013da](http://10.28.184.132/ssa-vis/vis-components/Index/commits/45013da8d06b8804fd806c09c6f8530989663e29))
-- 日志跳转详情对接 gitlab ([bd62a9f](http://10.28.184.132/ssa-vis/vis-components/Index/commits/bd62a9f6fba5b5aab7704236c06a3663ae84e16a))
+- 打包后自动重新生成相关库变动后的更新内容 ([45013da](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/commits/45013da8d06b8804fd806c09c6f8530989663e29))
+- 日志跳转详情对接 gitlab ([bd62a9f](http://xxx.xxx.xxx.xx/ssa-vis/vis-components/Index/commits/bd62a9f6fba5b5aab7704236c06a3663ae84e16a))
 
 # [1.44.0](https://github.com/ant-design/pro-components/compare/@vis/utils@1.43.0...@vis/utils@1.44.0) (2022-07-14)
 

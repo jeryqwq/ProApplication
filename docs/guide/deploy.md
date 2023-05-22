@@ -16,9 +16,9 @@ group:
 
 地址拆分解析：
 
-`http://10.28.184.132:8088/dash/#/list?type=dashboard`
+`http://xxx.xxx.xxx.xx:8088/dash/#/list?type=dashboard`
 
-- `http://10.28.184.132:8088` - 主机地址
+- `http://xxx.xxx.xxx.xx:8088` - 主机地址
 - `/dash` - 路由的 history 用来区分子应用
 - `/#/list` - hash 路由参数为子应用自己的路由
 - `?type=dashboard` - 传参
@@ -50,8 +50,8 @@ group:
 
 ### 访问地址：
 
-- [主应用](http://10.28.184.132:8088/#/)
-- [仪表板](http://10.28.184.132:8088/dash/#/list)
-- [文档](http://10.28.184.132:8088/docs/#/)
-- [画布](http://10.28.184.132:8088/visual#/)
-- [数据模型](http://10.28.184.132:8088/dataModel#/)
+- [主应用](http://xxx.xxx.xxx.xx:8088/#/)
+- [仪表板](http://xxx.xxx.xxx.xx:8088/dash/#/list)
+- [文档](http://xxx.xxx.xxx.xx:8088/docs/#/)
+- [画布](http://xxx.xxx.xxx.xx:8088/visual#/)
+- [数据模型](http://xxx.xxx.xxx.xx:8088/dataModel#/)

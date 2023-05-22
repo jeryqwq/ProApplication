@@ -96,7 +96,7 @@ export default defineConfig({
     remotes: [
       {
         name: remoteMFName,
-        entry: 'http://10.28.184.132:8088/main/remote.js', // 主应用导出的包
+        entry: 'http://xxx.xxx.xxx.xx:8088/main/remote.js', // 主应用导出的包
       },
     ],
     // 配置 MF 共享的模块
